@@ -1,14 +1,13 @@
 # Wildcards
 
-*                   # Ignore everything
-!*/                 # Descend into directories
+*
+!*/
 
-!*.yaml             # Don't ignore yaml files
+!*.yaml
 !*.gif
 !*.md
 
-
-google_calendars*     # Ignore google_calendars.yaml
+google_calendars.yaml
 .google.token
 known_devices.yaml
 secrets.yaml
