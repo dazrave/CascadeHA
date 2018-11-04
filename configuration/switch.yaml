@@ -1,0 +1,36 @@
+  - platform: rpi_gpio
+    ports:
+      17: Alarm Siren
+    invert_logic: true
+
+  - platform: rpi_gpio
+    ports:
+      22: Garage Door Up
+      23: Garage Door Down
+    invert_logic: true
+
+  - platform: mqtt
+    name: "General 1"
+    state_topic: "stat/sonoff3/POWER"
+    command_topic: "cmnd/sonoff3/POWER"
+    availability_topic: "tele/sonoff3/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
+    optimistic: false
+
+  - platform: mqtt
+    name: "General 2"
+    state_topic: "stat/sonoff4/POWER"
+    command_topic: "cmnd/sonoff4/POWER"
+    availability_topic: "tele/sonoff4/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
+    optimistic: false

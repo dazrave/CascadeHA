@@ -1,0 +1,20 @@
+network_info:
+  name: Network Status
+  icon: mdi:wifi
+  view: no
+  entities:
+    - sensor.cascade_network_status
+    - sensor.cascade_network_uptime
+    - sensor.cascade_network_last_restart
+    - sensor.cascade_network_local_ip
+    - sensor.cascade_network_new_version
+
+network_speed:
+  name: Network Speed
+  icon: mdi:wifi
+  view: no
+  entities:
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+    #- sensor.fastdotcom_download
+    #- sensor.fastdotcom_upload

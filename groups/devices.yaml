@@ -1,0 +1,25 @@
+residents:
+  name: Residents
+  view: no
+  icon: mdi:account-multiple
+  control: hidden
+  # device_class: presence
+  entities:
+    - group.darren
+    - group.stephanie
+    # - input_boolean.dog_mode
+    # - input_boolean.guest_mode
+
+darren:
+  name: Darren
+  view: yes
+  entities:
+    - device_tracker.darren
+    - device_tracker.google_maps_109369459484370838012
+
+stephanie:
+  name: Stephanie
+  view: yes
+  entities:
+    - device_tracker.stephanie
+    - device_tracker.google_maps_112615938731075593608

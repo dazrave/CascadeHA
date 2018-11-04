@@ -1,0 +1,21 @@
+  dog_mode:
+    name: Dog
+    initial: off
+    icon: mdi:paw
+    #device_class: presence
+
+  guest_mode:
+    name: Guest
+    initial: off
+    icon: mdi:account-plus
+    # device_class: presence
+
+  garage_door:
+    name: Garage Door
+    initial: off
+    icon: mdi:garage
+
+  home_alarm:
+    name: Home Alarm
+    initial: off
+    icon: mdi:alarm

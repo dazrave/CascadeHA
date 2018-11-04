@@ -1,0 +1,6 @@
+
+- name: slack
+  platform: slack
+  api_key: !secret slack_api
+  default_channel: '#alerts'
+  # username: 'Home Assistant'

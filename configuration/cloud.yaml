@@ -1,0 +1,53 @@
+google_actions:
+  filter:
+    include_entities:
+      - light.office_desk_led
+      - light.kitchen_counter
+      - light.garden_flood_light
+      - light.living_room_lamp
+      - input_boolean.garage_door
+      - input_boolean.dog_mode
+  entity_config:
+    light.living_room_lamp:
+      name: Lamp
+      aliases:
+       - lamp
+       - light
+      room: living room
+    light.office_desk_led:
+      name: Desk Light
+      aliases:
+       - light
+       - lamp
+       - desk
+      room: office
+    light.garden_flood_light:
+      name: Flood Light
+      aliases:
+       - light
+       - flood light
+       - floodlight
+      room: garden
+    light.kitchen_counter:
+      name: Kitchen Counter
+      aliases:
+       - lights
+       - light
+       - unit
+       - counter
+      room: kitchen
+
+    input_boolean.dog_mode:
+      name: alarm
+      aliases:
+        - secure home
+        - home alarm
+    #  room: Home
+
+    input_boolean.garage_door:
+      name: Door
+      aliases:
+        - door
+      #google_assistant: true
+      #google_assistant_type: switch
+      room: garage

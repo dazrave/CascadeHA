@@ -1,0 +1,65 @@
+# Garage Door control
+- alias: 'Open garage door'
+  trigger:
+    - platform: state
+      entity_id: switch.garage_door_up
+      to: 'on'
+      for:
+        seconds: 2
+  action:
+  - service: switch.turn_off
+    entity_id: switch.garage_door_up
+
+- alias: 'Close garage door'
+  trigger:
+    - platform: state
+      entity_id: switch.garage_door_down
+      to: 'on'
+      for:
+        seconds: 2
+  action:
+  - service: switch.turn_off
+    entity_id: switch.garage_door_down
+
+- alias: 'Garage door GH up'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.garage_door
+      to: 'on'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.garage_door_up
+
+- alias: 'Garage door GH down'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.garage_door
+      to: 'off'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.garage_door_down
+
+# Garage door Reed sensor
+- alias: 'Garage door alert'
+  trigger:
+    - platform: state
+      entity_id: sensor.garage_door
+      to: 'open'
+      for:
+        seconds: 5
+  action:
+  - service: notify.slack
+    data:
+      message: "Garage is open"
+
+- alias: 'Garage door alert'
+  trigger:
+    - platform: state
+      entity_id: sensor.garage_door
+      to: 'open'
+      for:
+        seconds: 5
+  action:
+  - service: notify.slack
+    data:
+      message: "Garage is now closed"

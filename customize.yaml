@@ -1,0 +1,90 @@
+# Lights
+    light.garden_flood_light:
+      friendly_name: Garden Floodlight
+      icon: mdi:track-light
+    light.living_room_lamp:
+      friendly_name: Living Room Lamp
+      icon: mdi:lamp
+    light.office_desk_led:
+      friendly_name: Office Desk Light
+      icon: mdi:desk-lamp
+
+# Google Wifi sensors
+    sensor.cascade_network_status:
+      friendly_name: Current status
+    sensor.cascade_network_uptime:
+      friendly_name: Uptime
+    sensor.cascade_network_last_restart:
+      friendly_name: Last restart
+    sensor.cascade_network_local_ip:
+      friendly_name: Local IP
+    sensor.cascade_network_new_version:
+      friendly_name: Firmware
+
+# Nest and weather
+    sensor.met_office_weather:
+      friendly_name: Weather
+    sun.sun:
+      friendly_name: Sun
+    sensor.met_office_temperature:
+      friendly_name: Outside
+    sensor.met_office_feels_like_temperature:
+      friendly_name: Feels like
+    sensor.met_office_humidity:
+      friendly_name: Outside Humidity
+    sensor.met_office_probability_of_precipitation:
+      friendly_name: Chance of rain
+    sensor.hallway_thermostat_temperature:
+      friendly_name: Hallway
+    sensor.hallway_thermostat_target:
+      friendly_name: Target
+    sensor.hallway_thermostat_humidity:
+      friendly_name: Inside Humidity
+
+# custom
+    binary_sensor.floorplan:
+      custom_ui_state_card: state-card-floorplan
+      config: !include floorplan.yaml
+# Security
+    binary_sensor.front_door:
+      device_class: opening
+    binary_sensor.kitchen_door:
+      device_class: opening
+    binary_sensor.back_room:
+      device_class: motion
+      friendly_name: Back Room Motion
+    binary_sensor.kitchen:
+      device_class: motion
+      friendly_name: Kitchen Motion
+    binary_sensor.landing:
+      device_class: motion
+      friendly_name: Landing Motion
+    binary_sensor.living_room:
+      device_class: motion
+      friendly_name: Living Room Motion
+    binary_sensor.garden_right:
+      device_class: motion
+    binary_sensor.garden_left:
+      device_class: motion
+    binary_sensor.side_gate:
+      device_class: motion
+    binary_sensor.side_door:
+      device_class: motion
+    binary_sensor.font_window:
+      device_class: motion
+    binary_sensor.driveway:
+      device_class: motion
+
+    switch.alarm:
+      icon: mdi:alarm-bell
+
+    switch.garage_door_up:
+      icon: mdi:arrow-up
+      templates:
+        rgb_color: "if (state === 'off') return [200, 100, 30]; else return [10, 20, 30];"
+    switch.garage_door_down:
+      icon: mdi:arrow-down
+      templates:
+        rgb_color: "if (state === 'off') return [200, 100, 30]; else return [10, 20, 30];"
+
+      # mdi:garage-alert

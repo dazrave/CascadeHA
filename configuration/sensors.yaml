@@ -1,0 +1,106 @@
+- platform: pi_hole
+
+- platform: yr
+
+- platform: google_wifi
+  host: 192.168.0.1
+  name: Cascade Network
+
+- platform: metoffice
+  api_key: !secret met_office_api_key
+  monitored_conditions:
+    - weather
+    - temperature
+    - feels_like_temperature
+    - wind_speed
+    - wind_direction
+    - wind_gust
+    - visibility
+    - visibility_distance
+    - uv
+    - precipitation
+    - humidity
+
+- platform: google_travel_time
+  name: Time to TickX
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.google_maps_109369459484370838012 # Darren
+  destination: zone.tickx
+
+- platform: google_travel_time
+  name: Time to Protective Packaging
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.google_maps_112615938731075593608 # Stephanie
+  destination: zone.protective_packaging
+
+- platform: google_travel_time
+  name: Darren time to Home
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.google_maps_109369459484370838012 # Darren
+  destination: zone.home
+
+- platform: google_travel_time
+  name: Stephanie time to Home
+  api_key: !secret google_maps_api_key
+  origin: device_tracker.google_maps_112615938731075593608 # Stephanie
+  destination: zone.home
+
+- platform: template
+  sensors:
+    last_activity:
+      friendly_name: 'Last Activity'
+      value_template: >
+        {%- set sensors = [states.input_boolean.garage_door, states.binary_sensor.kitchen, states.binary_sensor.landing, states.binary_sensor.living_room] %}
+        {% for sensor in sensors %}
+          {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
+            {{ sensor.name }}
+          {% endif %}
+        {% endfor %}
+
+- platform: template
+  sensors:
+    bins:
+      friendly_name: 'Bins'
+      value_template: "
+        {% if is_state('states.calendar.bins.attributes.message', 'Recycling bins') %}
+          Recycling
+        {% else %}
+          Black
+        {% endif %}"
+      icon_template: mdi:delete
+    garage_door:
+      friendly_name: 'Garage Door'
+      value_template: "
+        {% if is_state('binary_sensor.garage_closed', 'on') %}
+          Closed
+        {% elif is_state('binary_sensor.garage_open', 'on') %}
+          Open
+        {% else %}
+          Partial
+        {% endif %}"
+      icon_template: "
+        {% if is_state('binary_sensor.garage_closed', 'on') %}
+          mdi:garage
+        {% elif is_state('binary_sensor.garage_open', 'on') %}
+          mdi:garage-open
+        {% else %}
+          mdi:garage-alert
+        {% endif %}"
+
+- platform: speedtest
+  minute: 30
+  hour:
+    - 0
+    - 6
+    - 12
+    - 18
+  server_id: 3448
+  monitored_conditions:
+    - ping
+    - upload
+    - download
+
+#- platform: fastdotcom
+#  minute:
+#    - 0
+#    - 30

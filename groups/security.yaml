@@ -1,0 +1,87 @@
+alarmcontrol:
+  name: Alarm Control
+  icon: mdi:security-home
+  view: no
+  control: hidden
+  entities:
+    - alarm_control_panel.home_alarm
+
+internalpir:
+  name: Internal Motion
+  icon: mdi:account-alert
+  view: no
+  control: hidden
+  entities:
+    #- binary_sensor.back_room
+    - binary_sensor.kitchen
+    - binary_sensor.landing
+    - binary_sensor.living_room
+
+groundfloorpir:
+  name: Ground Floor Motion
+  icon: mdi:account-alert
+  view: no
+  control: hidden
+  entities:
+    #- binary_sensor.back_room
+    - binary_sensor.kitchen
+    - binary_sensor.living_room
+
+firstfloorpir:
+  name: First Floor Motion
+  icon: mdi:account-alert
+  view: no
+  control: hidden
+  entities:
+    - binary_sensor.landing
+
+externalpir:
+  name: External Motion
+  icon: mdi:account-alert
+  view: no
+  control: hidden
+  entities:
+    - binary_sensor.garden_right
+    - binary_sensor.garden_left
+    - binary_sensor.side_gate
+    - binary_sensor.side_door
+    - binary_sensor.font_window
+    - binary_sensor.driveway
+
+garage:
+  name: Garage
+  icon: mdi:garage-alert
+  view: no
+  control: hidden
+  entities:
+    #- switch.garage_door_up
+    #- switch.garage_door_down
+    - template.garage_door
+    - camera.garage
+
+front_cams:
+  name: Front
+  view: no
+  control: hidden
+  entities:
+    - camera.driveway
+    - camera.front_garden
+
+internal_cams:
+  name: Front
+  view: no
+  control: hidden
+  entities:
+    - camera.dog_bed
+    - camera.dining_room
+    - camera.hallway
+
+reedswitches:
+  name: Door Sensors
+  icon: mdi:door
+  view: no
+  control: hidden
+  entities:
+    - binary_sensor.front_door
+    - binary_sensor.kitchen_door
+    - binary_sensor.garage_door

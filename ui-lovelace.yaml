@@ -1,0 +1,132 @@
+title: Cascade Home
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+background: center / cover no-repeat url("/background.png") fixed
+views:
+    # View tab title.
+  - icon: mdi:home-assistant
+    title: Overview
+    id: home
+    background: grey
+    theme: dark-mode
+    cards:
+    # Left stack
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Lights
+          show_header_toggle: false
+          entities:
+            - entity: light.kitchen_counter
+              name: Kitchen Counter
+            - entity: light.living_room_lamp
+              name: Living Room Lamp
+            - entity: light.garden_flood_light
+              name: Garden Floodlight
+              icon: mdi:track-light
+            - entity: light.office_desk_led
+              name: Office Desk
+              icon: mdi:desk-lamp
+
+    #    - type: glance
+    #      entities:
+    #        - sensor.bins
+
+    # Right stack
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Security
+          entities:
+            - alarm_control_panel.home_alarm
+            - sensor.last_activity
+            #- binary_sensor.back_room
+            #- binary_sensor.kitchen
+            #- binary_sensor.landing
+            #- binary_sensor.living_room
+
+        - type: entities
+          title: Climate
+          entities:
+            - entity: climate.hallway
+              name: Thermostat
+            - entity: sensor.met_office_temperature
+              name: Outside
+            - entity: sensor.met_office_probability_of_precipitation
+              name: Rain Chance
+
+        - type: picture-glance
+          title: Garage
+          entities:
+            - switch.garage_door_up
+            - sensor.garage_door
+            - switch.garage_door_down
+          camera_image: camera.garage
+
+
+    # View tab title.
+  - icon: mdi:information-outline
+    title: Info
+    id: info
+    background: grey
+    theme: dark-mode
+    cards:
+    # Left stack
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Network
+          entities:
+            - sensor.cascade_network_status
+            - sensor.cascade_network_local_ip
+            - sensor.cascade_network_uptime
+            - sensor.cascade_network_last_restart
+            - sensor.speedtest_download
+            - sensor.speedtest_upload
+            - sensor.speedtest_ping
+
+        - type: entities
+          entities:
+            #- binary_sensor.garage_open
+            - sensor.garage_door
+            - switch.garage_door_up
+            - switch.garage_door_down
+
+
+        - type: entities
+          entities:
+            - group.darren
+            - group.stephanie
+            - sensor.darren_time_to_home
+            - sensor.stephanie_time_to_home
+            - sensor.time_to_tickx
+            - sensor.time_to_protective_packaging
+
+
+    # View tab title.
+  - icon: mdi:account-group
+    title: Residents
+    id: residents
+    background: grey
+    theme: dark-mode
+    cards:
+    # Left stack
+    - type: vertical-stack
+      cards:
+        - type: entities
+          entities:
+            - device_tracker.google_maps_109369459484370838012 # Darren
+            - device_tracker.google_maps_112615938731075593608 # Stephanie
+            - input_boolean.dog_mode
+            - input_boolean.guest_mode
+
+    # Right stack
+    - type: vertical-stack
+      cards:
+        - type: map
+          aspect_ratio: 100%
+          entities:
+            - entity: zone.home
+            - device_tracker.google_maps_109369459484370838012 # Darren
+            - device_tracker.google_maps_112615938731075593608 # Stephanie
+            - zone.protective_packaging
+            - zone.tickx
