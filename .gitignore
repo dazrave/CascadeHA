@@ -8,7 +8,7 @@
 !*.md
 
 
-google_calendars.yaml     # Ignore google_calendars.yaml
+google_calendars*     # Ignore google_calendars.yaml
 .google.token
 known_devices.yaml
 secrets.yaml
@@ -17,6 +17,7 @@ cameras.yaml
 .*
 *.db
 *.conf
+*.log
 
 # Directories
 
