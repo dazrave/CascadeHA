@@ -1,0 +1,41 @@
+- platform: flux_led
+  devices:
+    192.168.0.26:
+      name: Office Desk LED
+      mode: "rgb"
+    192.168.0.251:
+      name: Kitchen LED Right
+      mode: "rgb"
+    192.168.0.250:
+      name: Kitchen LED Left
+      mode: "rgb"
+
+- platform: group
+  name: Kitchen Counter
+  entities:
+    - light.kitchen_led_left
+    - light.kitchen_led_right
+
+- platform: mqtt
+  name: "Garden Flood Light"
+  state_topic: "stat/sonoff1/POWER"
+  command_topic: "cmnd/sonoff1/POWER"
+  availability_topic: "tele/sonoff1/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+- platform: mqtt
+  name: "Living Room Lamp"
+  state_topic: "stat/sonoff2/POWER"
+  command_topic: "cmnd/sonoff2/POWER"
+  availability_topic: "tele/sonoff2/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false

@@ -1,0 +1,52 @@
+kitchen_lights:
+  name: Kitchen Lights
+  icon: mdi:silverware-variant
+  view: no
+  entities:
+    - group.kitchen_unit_lights
+#    - light.kitchen_main
+
+#kitchen_unit_lights:
+#  name: Kitchen Unit Lights
+#  icon: mdi:silverware-variant
+#  view: no
+#  entities:
+#    - light.kitchen_led_left
+#    - light.kitchen_led_right
+
+living_room_lights:
+  name: Living Room
+  icon: mdi:ceiling-light
+  view: no
+  entities:
+    - light.living_room_lamp
+#    - light.living_room_main
+
+other_lights:
+  name: Other
+  icon: mdi:lightbulb-outline
+  view: no
+  entities:
+    - light.office_desk_led
+    - light.garden_flood_light
+#    - light.landing
+#    - light.garage
+#    - light.side_porch
+#    - light.front_porch
+
+#external_lights:
+#  name: Outside Lights
+#  icon: mdi:flashlight
+#  view: no
+#  entities:
+#    - light.gate
+#    - light.side
+#    - light.garden_path
+#    - light.rear_flood
+
+#seasonal_lights:
+#  name: Seasonal Lights
+#  icon: mdi:pine-tree
+#  view: no
+#  entities:
+#    - light.xmas_light

@@ -1,0 +1,21 @@
+  - platform: rpi_gpio
+    ports:
+      26: Living Room # PIR (26)
+      13: Back Room # PIR (13)
+      19: Kitchen # PIR (19)
+      18: Landing # PIR (18)
+    bouncetime: 10
+    pull_mode: "UP"
+    invert_logic: true
+
+  - platform: rpi_gpio
+    ports:
+      5: Garage Open # Reed switch
+      20: Garage Closed # Reed switch
+    pull_mode: "UP"
+
+  #- platform: mqtt
+  #  state_topic: dummy/floorplan/sensor
+  #  name: Floorplan
+
+

@@ -1,0 +1,56 @@
+# Turn on after sunset
+- alias: Turn on after sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-01:00:00"
+  action:
+    - service: light.turn_on
+      entity_id: light.living_room_lamp
+    - service: light.turn_on
+      entity_id: light.kitchen_counter
+
+# Turn off at sunrise
+- alias: Turn off at sunrise
+  trigger:
+    - platform: sun
+      event: sunrise
+  condition:
+    - condition: state
+      entity_id: light.living_room_lamp
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.living_room_lamp
+    - service: light.turn_on
+      entity_id: light.kitchen_counter
+
+# Turn off after midnight if no motion
+- alias: Turn off at 12:30 if no motion
+  trigger:
+    - platform: time
+      at: '00:30:00'
+    - platform: state
+      entity_id: group.groundfloorpir
+      state: 'off'
+      for:
+        minutes: 30
+  action:
+    - service: light.turn_off
+      entity_id: light.living_room_lamp
+    #- service: light.turn_off
+    #  entity_id: light.garden_flood_light
+    #- service: light.turn_on
+    #  entity_id: light.office_desk_led, light.garden_flood_light #light.living_room_lamp
+
+# Turn off after 10 minutes
+- alias: Turn off after 10 minutes
+  trigger:
+    - platform: state
+      entity_id: light.garden_flood_light
+      to: 'on'
+      for:
+        minutes: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.garden_flood_light
