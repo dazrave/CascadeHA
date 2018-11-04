@@ -1,0 +1,24 @@
+# Wildcards
+
+*                   # Ignore everything
+!*/                 # Descend into directories
+
+!*.yaml             # Don't ignore yaml files
+!*.gif
+!*.md
+
+
+google_calendars.yaml     # Ignore google_calendars.yaml
+.google.token
+known_devices.yaml
+secrets.yaml
+configuration/cameras.yaml
+cameras.yaml
+
+# Directories
+
+devices
+lib                       # Ignore HA folders...
+deps
+tts
+www
