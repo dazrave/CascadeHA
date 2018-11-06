@@ -45,6 +45,9 @@
     binary_sensor.floorplan:
       custom_ui_state_card: state-card-floorplan
       config: !include floorplan.yaml
+    device_tracker.78bdbcf50758: # living room tv
+      device_class: power
+
 # Security
     binary_sensor.front_door:
       device_class: opening
