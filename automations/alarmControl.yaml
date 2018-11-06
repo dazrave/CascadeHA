@@ -87,16 +87,15 @@
   - service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.home_alarm
 
-# Turn on alarm if residents are potentially sleeping (Checks after 30 minutes of no motion)
-- alias: 'Turn on alarm when sleeping'
+# Turn on alarm if residents are potentially sleeping (Weekday)
+- alias: 'Turn on alarm when sleeping on weekday'
   trigger:
   # Office motion detection needed
     - platform: state
       entity_id: group.internalpir
       to: 'off'
       for:
-        #minutes: 30
-        seconds: 10
+        minutes: 30
   condition:
     condition: and
     conditions:
@@ -105,12 +104,55 @@
         state: 'home'
       - condition: state
         entity_id: sensor.last_activity
-        state: 'landing_motion'
-      - condition: state
-        entity_id: group.living_room_tv
-        state: 'not_home'
+        state: 'Landing Motion'
+      #- condition: state
+      #  entity_id: sensor.living_room_tv
+      #  state: 'off'
+      - condition: time
+        after: '00:00:00'
+        before: '06:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
   action:
   - service: alarm_control_panel.alarm_arm_home
+    entity_id: alarm_control_panel.home_alarm
+
+# Turn off alarm if residents are potentially awake (Weekday)
+- alias: 'Turn on alarm when sleeping on weekday'
+  trigger:
+  # Office motion detection needed
+    - platform: state
+      entity_id: binary_sensor.landing
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.residents
+        state: 'home'
+      - condition: state
+        entity_id: group.groundfloorpir
+        state: 'off'
+        for:
+          hour: 1
+      #- condition: state
+      #  entity_id: sensor.living_room_tv
+      #  state: 'off'
+      - condition: time
+        after: '05:50:00'
+        before: '08:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+  action:
+  - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.home_alarm
 
 # Turn off alarm when residents are home
