@@ -1,22 +1,10 @@
 homeassistant:
-  ## To Do
-  # Slack integration
-  # Slack internal PIR detect when group.residents 'away'
-  # "OK Google, Good night" house lock down (lights off & downstairs PIR detection)
-  # Garage door sensors
-
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret lat
   longitude: !secret lng
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 129
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/London
-  # Customization file
   customize: !include customize.yaml
 
 #panel_custom:
@@ -29,7 +17,6 @@ homeassistant:
 # Show links to resources in log and frontend
 # introduction:
 
-# Enables the frontend
 frontend:
 #  extra_html_url:
 #    - /local/custom_ui/state-card-floorplan.html
@@ -38,25 +25,17 @@ frontend:
 config:
 
 http:
-  # Secrets are defined in the file secrets.yaml
-  # api_password: !secret api_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret base_url
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
+  include_used_components: true
 
 # Discover some devices automatically
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+# conversation:
 
 # Enables support for tracking state changes over time
 history:
