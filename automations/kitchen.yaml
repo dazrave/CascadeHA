@@ -18,7 +18,7 @@
     entity_id: light.kitchen_counter
     state: 'on'
     for:
-      minutes: 30
+      minutes: 15
   action:
   - service: light.turn_off
     entity_id: light.kitchen_counter
