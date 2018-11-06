@@ -16,7 +16,7 @@
   trigger:
   - platform: state
     entity_id: light.kitchen_counter
-    state: 'on'
+    to: 'on'
     for:
       minutes: 15
   action:

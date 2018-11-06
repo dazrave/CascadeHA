@@ -12,6 +12,21 @@ views:
     # Left stack
     - type: vertical-stack
       cards:
+        - type: entity-filter
+          entities:
+            - group.residents
+            - group.living_room_tv
+            - alarm_control_panel.home_alarm
+          state_filter:
+            - "home"
+            - "armed_away"
+            - "armed_home"
+            - "triggered"
+            - "pending"
+            - "on"
+        - type: entities
+          entities:
+            - sensor.last_activity
         - type: entities
           entities:
             - group.residents
@@ -29,11 +44,6 @@ views:
             #- entity: light.office_desk_led
             #  name: Office Desk
             #  icon: mdi:desk-lamp
-        - type: entity-filter
-          entities:
-            - sensor.living_room_tv
-          state_filter:
-            - "on"
 
     #    - type: glance
     #      entities:
@@ -42,9 +52,6 @@ views:
     # Right stack
     - type: vertical-stack
       cards:
-        - type: entities
-          entities:
-            - sensor.last_activity
         - type: entities
           title: Climate
           entities:
