@@ -45,7 +45,14 @@
     binary_sensor.floorplan:
       custom_ui_state_card: state-card-floorplan
       config: !include floorplan.yaml
-    device_tracker.78bdbcf50758: # living room tv
+
+    device_tracker.living_room_tv:
+      device_class: power
+
+    device_tracker.chromecast:
+      device_class: power
+
+    device_tracker.firestick:
       device_class: power
 
 # Security
