@@ -95,7 +95,8 @@
       entity_id: group.internalpir
       to: 'off'
       for:
-        minutes: 30
+        #minutes: 30
+        seconds: 10
   condition:
     condition: and
     conditions:
