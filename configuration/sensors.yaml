@@ -87,6 +87,11 @@
           mdi:garage-alert
         {% endif %}"
 
+- platform: template
+  sensors:
+    living_room_tv:
+      value_template: "{% if is_state('device_tracker.living_room_tv', 'home') %}on{% else %}off{% endif %}"
+
 - platform: speedtest
   minute: 30
   hour:

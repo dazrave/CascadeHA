@@ -13,6 +13,9 @@ views:
     - type: vertical-stack
       cards:
         - type: entities
+          entities:
+            - group.residents
+        - type: entities
           title: Lights
           show_header_toggle: false
           entities:
@@ -23,9 +26,14 @@ views:
             - entity: light.garden_flood_light
               name: Garden Floodlight
               icon: mdi:track-light
-            - entity: light.office_desk_led
-              name: Office Desk
-              icon: mdi:desk-lamp
+            #- entity: light.office_desk_led
+            #  name: Office Desk
+            #  icon: mdi:desk-lamp
+        - type: entity-filter
+          entities:
+            - sensor.living_room_tv
+          state_filter:
+            - "on"
 
     #    - type: glance
     #      entities:
@@ -35,15 +43,8 @@ views:
     - type: vertical-stack
       cards:
         - type: entities
-          title: Security
           entities:
-            - alarm_control_panel.home_alarm
             - sensor.last_activity
-            #- binary_sensor.back_room
-            #- binary_sensor.kitchen
-            #- binary_sensor.landing
-            #- binary_sensor.living_room
-
         - type: entities
           title: Climate
           entities:
@@ -54,6 +55,28 @@ views:
             - entity: sensor.met_office_probability_of_precipitation
               name: Rain Chance
 
+    # View tab title.
+  - icon: mdi:cctv
+    title: CCTV
+    id: cctv
+    background: grey
+    theme: dark-mode
+    cards:
+    # row 1
+    - type: horizontal-stack
+      cards:
+        - type: entities
+          title: Security
+          entities:
+            - alarm_control_panel.home_alarm
+            - sensor.last_activity
+            #- binary_sensor.back_room
+            #- binary_sensor.kitchen
+            #- binary_sensor.landing
+            #- binary_sensor.living_room
+    # row 2
+    - type: horizontal-stack
+      cards:
         - type: picture-glance
           title: Garage
           entities:
@@ -61,6 +84,13 @@ views:
             - sensor.garage_door
             - switch.garage_door_down
           camera_image: camera.garage
+        - type: picture-glance
+          title: Front
+          entities:
+            - camera.front_garden
+          camera_image: camera.front_garden
+
+
 
 
     # View tab title.
