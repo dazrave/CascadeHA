@@ -47,8 +47,12 @@
       config: !include floorplan.yaml
 
     device_tracker.living_room_tv:
-      friendly_name: Living Room TV
-      icon: mdi:television-classic
+      device_class: power
+
+    device_tracker.chromecast:
+      device_class: power
+
+    device_tracker.firestick:
       device_class: power
 
 # Security

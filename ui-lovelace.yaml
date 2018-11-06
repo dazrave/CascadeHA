@@ -23,6 +23,7 @@ views:
             - "armed_home"
             - "triggered"
             - "pending"
+            - "on"
         - type: entities
           entities:
             - sensor.last_activity
