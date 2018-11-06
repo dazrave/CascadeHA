@@ -1,0 +1,96 @@
+# Motion detection
+
+# Alarm is set reminder
+- alias: 'Alarm reminder (home)'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.landing
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: 'armed_home'
+  action:
+  # Anologue bleep needed here
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.8
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.8
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
+
+# Motion detected whilst alarm is set
+- alias: 'Motion detected (home/away)'
+  trigger:
+    - platform: state
+      entity_id: group.internalpir
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: 'armed_home'
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: 'armed_away'
+  action:
+  # Anologue bleep needed here
+  - service: notify.slack
+    data:
+      message: "{{states('sensor.last_activity')}} warning."
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.8
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.8
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.8
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
+
+# Trigger the alarm
+- alias: 'Trigger Alarm'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'triggered'
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
+  - service: tts.google_say
+    entity_id: group.speakers
+    data:
+      message: "{{states('sensor.last_activity')}}, {{states('sensor.last_activity')}}"
+  - service: light.turn_on
+    entity_id: group.all_lights
+  - service: notify.slack
+    data:
+      message: "{{states('sensor.last_activity')}} - House alarm has been activated!"
