@@ -1,5 +1,4 @@
-# Trigger if off
-- alias: turn kitchen lights on if not already
+- alias: Kitchen counter motion
   trigger:
   - platform: state
     entity_id: binary_sensor.kitchen
@@ -12,13 +11,17 @@
     - service: light.turn_on
       entity_id: light.kitchen_counter
 
-- alias: Turn kitchen lights off after awhile
+- alias: Kitchen counter timer
   trigger:
   - platform: state
-    entity_id: light.kitchen_counter
-    to: 'on'
+    entity_id: binary_sensor.kitchen
+    to: 'off'
     for:
       minutes: 15
+  condition:
+    - condition: state
+      entity_id: light.kitchen_counter
+      state: 'on'
   action:
   - service: light.turn_off
     entity_id: light.kitchen_counter
