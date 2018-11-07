@@ -28,9 +28,6 @@ views:
           entities:
             - sensor.last_activity
         - type: entities
-          entities:
-            - group.residents
-        - type: entities
           title: Lights
           show_header_toggle: false
           entities:

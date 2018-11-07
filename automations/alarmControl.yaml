@@ -76,7 +76,7 @@
         for:
           minutes: 30
       - condition: state
-        entity_id: group.resdidents
+        entity_id: group.residents
         state: 'away'
         for:
           minutes: 30
