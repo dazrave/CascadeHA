@@ -86,6 +86,10 @@
   action:
   - service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.home_alarm
+  - service: tts.google_say
+    entity_id: group.speakers
+    data:
+      message: "Alarm ON"
 
 # Turn on alarm if residents are potentially sleeping (Weekday)
 - alias: 'Turn on alarm when sleeping on weekday'
@@ -185,3 +189,7 @@
     data_template:
       entity_id: group.speakers
       volume_level: 1
+    - service: tts.google_say
+    entity_id: group.speakers
+    data:
+      message: "Alarm OFF"
