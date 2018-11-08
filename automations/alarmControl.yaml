@@ -94,18 +94,21 @@
 # Turn on alarm if residents are potentially sleeping (Weekday)
 - alias: 'Turn on alarm when sleeping on weekday'
   trigger:
-  # Office motion detection needed
-    - platform: state
-      entity_id: group.internalpir
-      to: 'off'
-      for:
-        minutes: 30
+    - platform: time
+      minutes: '/15'
+      seconds: 0
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: group.residents
         state: 'home'
+      # Office motion detector needed
+      - condition: state
+        entity_id: group.internalpir
+        state: 'off'
+        for:
+          minutes: 30
       - condition: state
         entity_id: sensor.last_activity
         state: 'Landing Motion'
