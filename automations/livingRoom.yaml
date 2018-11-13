@@ -3,11 +3,11 @@
     - platform: state
       entity_id: group.groundfloorpir
       to: 'off'
-      for: 
+      for:
         minutes: 30
   condition:
     - condition: time
-      after: '11:30:00'
+      after: '22:30:00'
       before: '06:00:00'
       weekday:
         - sun
@@ -24,7 +24,7 @@
     - platform: state
       entity_id: group.groundfloorpir
       to: 'off'
-      for: 
+      for:
         minutes: 30
   condition:
     - condition: time
