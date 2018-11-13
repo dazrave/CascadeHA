@@ -83,16 +83,16 @@
   action:
   - service: switch.turn_on
     entity_id: switch.alarm_siren
-  #- service: media_player.volume_set
-  #  data_template:
-  #    entity_id: group.speakers
-  #    volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 1
   #- service: tts.google_say
   #  entity_id: group.speakers
   #  data:
   #    message: "{{states('sensor.last_activity')}}, {{states('sensor.last_activity')}}"
-  #- service: light.turn_on
-  #  entity_id: group.all_lights
-  #- service: notify.slack
-  #  data:
-  #    message: "{{states('sensor.last_activity')}} - House alarm has been activated!"
+  - service: light.turn_on
+    entity_id: group.all_lights
+  - service: notify.slack
+    data:
+      message: "{{states('sensor.last_activity')}} - House alarm has been activated!"
