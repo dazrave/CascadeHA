@@ -14,8 +14,8 @@ views:
       cards:
         - type: entity-filter
           entities:
-            - group.residents
-            - group.living_room_tv
+            - group.darren
+            - group.stephanie
             - alarm_control_panel.home_alarm
           state_filter:
             - "home"
@@ -94,48 +94,6 @@ views:
             - camera.front_garden
           camera_image: camera.front_garden
 
-
-
-
-    # View tab title.
-  - icon: mdi:information-outline
-    title: Info
-    id: info
-    background: grey
-    theme: dark-mode
-    cards:
-    # Left stack
-    - type: vertical-stack
-      cards:
-        - type: entities
-          title: Network
-          entities:
-            - sensor.cascade_network_status
-            - sensor.cascade_network_local_ip
-            - sensor.cascade_network_uptime
-            - sensor.cascade_network_last_restart
-            - sensor.speedtest_download
-            - sensor.speedtest_upload
-            - sensor.speedtest_ping
-
-        - type: entities
-          entities:
-            #- binary_sensor.garage_open
-            - sensor.garage_door
-            - switch.garage_door_up
-            - switch.garage_door_down
-
-
-        - type: entities
-          entities:
-            - group.darren
-            - group.stephanie
-            - sensor.darren_time_to_home
-            - sensor.stephanie_time_to_home
-            - sensor.time_to_tickx
-            - sensor.time_to_protective_packaging
-
-
     # View tab title.
   - icon: mdi:account-group
     title: Residents
@@ -144,7 +102,7 @@ views:
     theme: dark-mode
     cards:
     # Left stack
-    - type: vertical-stack
+    - type: horizontal-stack
       cards:
         - type: entities
           entities:
@@ -164,3 +122,25 @@ views:
             - device_tracker.google_maps_112615938731075593608 # Stephanie
             - zone.protective_packaging
             - zone.tickx
+
+
+    # View tab title.
+  - icon: mdi:signal-variant
+    title: Info
+    id: info
+    background: grey
+    theme: dark-mode
+    cards:
+    # Left stack
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Network
+          entities:
+            - sensor.cascade_network_status
+            - sensor.cascade_network_local_ip
+            - sensor.cascade_network_uptime
+            - sensor.cascade_network_last_restart
+
+
+
