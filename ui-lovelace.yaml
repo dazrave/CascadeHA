@@ -74,6 +74,7 @@ views:
           entities:
             - alarm_control_panel.home_alarm
             - sensor.last_activity
+            - switch.alarm_siren
             #- binary_sensor.back_room
             #- binary_sensor.kitchen
             #- binary_sensor.landing
