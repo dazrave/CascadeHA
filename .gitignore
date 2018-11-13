@@ -13,6 +13,7 @@ known_devices.yaml
 secrets.yaml
 configuration/cameras.yaml
 cameras.yaml
+zones.yaml
 .*
 *.db
 *.conf
