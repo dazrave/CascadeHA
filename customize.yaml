@@ -97,4 +97,10 @@
       templates:
         rgb_color: "if (state === 'off') return [200, 100, 30]; else return [10, 20, 30];"
 
+# custom groups
+    group.darren:
+      entity_picture: https://lh4.googleusercontent.com/-gDas6fgv-vU/AAAAAAAAAAI/AAAAAAAACLg/eA7zqLzlE_Y/photo.jpg
+    group.stephanie:
+      entity_picture: https://lh4.googleusercontent.com/-nRp51DjisXw/AAAAAAAAAAI/AAAAAAAAJE0/yh__Hvog3mY/photo.jpg
+
       # mdi:garage-alert

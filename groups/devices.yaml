@@ -13,7 +13,6 @@ residents:
 darren:
   name: Darren
   view: yes
-  entity_picture: https://lh4.googleusercontent.com/-gDas6fgv-vU/AAAAAAAAAAI/AAAAAAAACLg/eA7zqLzlE_Y/photo.jpg
   entities:
     - device_tracker.darren
     - device_tracker.google_maps_109369459484370838012
@@ -21,7 +20,6 @@ darren:
 stephanie:
   name: Stephanie
   view: yes
-  entity_picture: https://lh4.googleusercontent.com/-nRp51DjisXw/AAAAAAAAAAI/AAAAAAAAJE0/yh__Hvog3mY/photo.jpg
   entities:
     - device_tracker.stephanie
     - device_tracker.google_maps_112615938731075593608
