@@ -13,6 +13,7 @@ views:
     - type: vertical-stack
       cards:
         - type: entity-filter
+          show_empty: false
           entities:
             - group.darren
             - group.stephanie
@@ -49,15 +50,17 @@ views:
     # Right stack
     - type: vertical-stack
       cards:
-        - type: entities
-          title: Climate
-          entities:
-            - entity: climate.hallway
-              name: Thermostat
-            - entity: sensor.met_office_temperature
-              name: Outside
-            - entity: sensor.met_office_probability_of_precipitation
-              name: Rain Chance
+        - type: thermostat
+          entity: climate.hallway
+        #- type: entities
+        #  title: Climate
+        #  entities:
+        #    - entity: climate.hallway
+        #      name: Thermostat
+        #    - entity: sensor.met_office_temperature
+        #      name: Outside
+        #    - entity: sensor.met_office_probability_of_precipitation
+        #      name: Rain Chance
 
     # View tab title.
   - icon: mdi:cctv
@@ -71,9 +74,12 @@ views:
       cards:
         - type: entities
           title: Security
+          show_header_toggle: false
           entities:
             - alarm_control_panel.home_alarm
             - sensor.last_activity
+            - automation.turn_on_alarm_when_away
+            - automation.turn_on_alarm_when_sleeping_on_weekday
             - switch.alarm_siren
             #- binary_sensor.back_room
             #- binary_sensor.kitchen
@@ -107,8 +113,8 @@ views:
       cards:
         - type: entities
           entities:
-            - device_tracker.google_maps_109369459484370838012 # Darren
-            - device_tracker.google_maps_112615938731075593608 # Stephanie
+            - group.darren # Darren
+            - group.stephanie # Stephanie
             - input_boolean.dog_mode
             - input_boolean.guest_mode
 
@@ -124,11 +130,10 @@ views:
             - zone.protective_packaging
             - zone.tickx
 
-
     # View tab title.
-  - icon: mdi:signal-variant
-    title: Info
-    id: info
+  - icon: mdi:settings
+    title: Settings
+    id: settings
     background: grey
     theme: dark-mode
     cards:
@@ -142,6 +147,16 @@ views:
             - sensor.cascade_network_local_ip
             - sensor.cascade_network_uptime
             - sensor.cascade_network_last_restart
+    # Right stack
+    - type: vertical-stack
+      cards:
+        - type: entities
+          title: Automations
+          entities:
+            - automation.weekday_living_room_lamp_off
+            - automation.weekend_living_room_lamp_off
+            - automation.turn_on_after_sunset
+
 
 
 
