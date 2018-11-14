@@ -1,5 +1,6 @@
 # Garage Door control
 - alias: 'Open garage door'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: switch.garage_door_up
@@ -11,6 +12,7 @@
     entity_id: switch.garage_door_up
 
 - alias: 'Close garage door'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: switch.garage_door_down
@@ -22,6 +24,7 @@
     entity_id: switch.garage_door_down
 
 - alias: 'Garage door GH up'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.garage_door
@@ -31,6 +34,7 @@
     entity_id: switch.garage_door_up
 
 - alias: 'Garage door GH down'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.garage_door
@@ -41,6 +45,7 @@
 
 # Garage door Reed sensor
 - alias: 'Garage door alert'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: sensor.garage_door
@@ -53,6 +58,7 @@
       message: "Garage is open"
 
 - alias: 'Garage door alert'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: sensor.garage_door

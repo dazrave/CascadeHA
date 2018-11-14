@@ -1,5 +1,6 @@
 # Turn on before sunset
 - alias: Turn on after sunset
+  initial_state: 'on'
   trigger:
     - platform: sun
       event: sunset
@@ -12,6 +13,7 @@
 
 # Turn off at sunrise
 - alias: Turn off at sunrise
+  initial_state: 'on'
   trigger:
     - platform: sun
       event: sunrise

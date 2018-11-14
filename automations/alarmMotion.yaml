@@ -2,6 +2,7 @@
 
 # Alarm is set reminder
 - alias: 'Alarm reminder (home)'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: binary_sensor.landing
@@ -31,6 +32,7 @@
 
 # Motion detected whilst alarm is set
 - alias: 'Motion detected (home/away)'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: group.internalpir
@@ -76,6 +78,7 @@
 
 # Trigger the alarm
 - alias: 'Trigger Alarm'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
