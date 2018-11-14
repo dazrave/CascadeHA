@@ -1,10 +1,18 @@
 - platform: pi_hole
+  monitored_conditions:
+    - ads_blocked_today
+    - ads_percentage_today
+    - unique_domains
+    - dns_queries_today
 
 - platform: yr
 
 - platform: google_wifi
   host: 192.168.0.1
   name: Cascade Network
+
+- platform: season
+  type: astronomical
 
 - platform: metoffice
   api_key: !secret met_office_api_key
@@ -20,6 +28,20 @@
     - uv
     - precipitation
     - humidity
+
+- platform: lastfm
+  api_key: !secret lastfm_api_key
+  users:
+    - dazrave
+
+- platform: steam_online
+  api_key: !secret steam_api
+  accounts:
+    - 76561198131186539
+
+- platform: haveibeenpwned
+  email:
+    - !secret darren_email
 
 - platform: google_travel_time
   name: Time to TickX
@@ -94,12 +116,12 @@
 
 - platform: speedtest
   minute: 30
-  hour:
-    - 0
-    - 6
-    - 12
-    - 18
-  server_id: 3448
+  #hour:
+  #  - 0
+  #  - 6
+  #  - 12
+  #  - 18
+  #server_id: 3448
   monitored_conditions:
     - ping
     - upload

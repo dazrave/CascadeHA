@@ -118,6 +118,10 @@ views:
             - input_boolean.dog_mode
             - input_boolean.guest_mode
 
+
+
+
+
     # Right stack
     - type: vertical-stack
       cards:
@@ -129,6 +133,13 @@ views:
             - device_tracker.google_maps_112615938731075593608 # Stephanie
             - zone.protective_packaging
             - zone.tickx
+
+    - type: horizontal-stack
+      cards:
+        - type: entities
+          entities:
+            - sensor.lastfm_dazrave
+            - sensor.steam_76561198131186539
 
     # View tab title.
   - icon: mdi:settings
@@ -147,6 +158,15 @@ views:
             - sensor.cascade_network_local_ip
             - sensor.cascade_network_uptime
             - sensor.cascade_network_last_restart
+            - entity: sensor.pihole_ads_blocked_today
+              name: Ads blocked today
+              icon: mdi:image-off
+            - entity: sensor.pihole_ads_percentage_blocked_today
+              name: Monitored change
+              icon: mdi:image-search
+            - entity: sensor.pihole_dns_unique_domains
+              name: DNS hits today
+              icon: mdi:server-network
     # Right stack
     - type: vertical-stack
       cards:

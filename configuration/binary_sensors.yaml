@@ -14,6 +14,9 @@
       20: Garage Closed # Reed switch
     pull_mode: "UP"
 
+  - platform: workday
+    country: UK
+
   #- platform: mqtt
   #  state_topic: dummy/floorplan/sensor
   #  name: Floorplan

@@ -14,6 +14,12 @@ homeassistant:
 #    url_path: floorplan
 #    config: !include floorplan.yaml
 
+panel_iframe:
+  cctv:
+    title: 'CCTV'
+    icon: mdi:cctv
+    url: 'http://cascadehome.net:8181/login.htm'
+
 # Show links to resources in log and frontend
 # introduction:
 
