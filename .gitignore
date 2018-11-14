@@ -22,6 +22,7 @@ zones.yaml
 # Directories
 
 devices
+assets
 lib                       # Ignore HA folders...
 deps
 tts

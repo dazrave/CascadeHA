@@ -52,14 +52,16 @@
       to: 'disarmed'
   action:
   # Anologue bleep needed here
-  - service: media_player.volume_set
-    data_template:
-      entity_id: group.speakers
-      volume_level: 0.8
+  - service: switch.turn_off
+    entity_id: switch.alarm_siren
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
       volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.4
 
 # Turn on alarm if residents are away (Checks every 15 minutes)
 - alias: 'Turn on alarm when away'
@@ -196,3 +198,15 @@
     entity_id: group.speakers
     data:
       message: "Alarm OFF"
+
+# Turn off siren after 30 minutes
+- alias: 'Turn off siren'
+  trigger:
+    - platform: state
+      entity_id: switch.alarm_siren
+      to: 'on'
+      for:
+        minutes: 30
+  action:
+  - service: switch.turn_off
+    entity_id: switch.alarm_siren
