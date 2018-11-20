@@ -1,7 +1,7 @@
 # Climate Control
 
-# Turn on away_mode when away
-- alias: 'Turn off heat with residents are away'
+# Turn on away_mode when residents away
+- alias: 'Nest auto away mode on'
   initial_state: 'on'
   trigger:
     - platform: state
@@ -14,7 +14,7 @@
       away_mode: true
 
 # Turn off away_mode when residents home
-- alias: 'Turn off heat with residents are away'
+- alias: 'Nest auto away mode off'
   initial_state: 'on'
   trigger:
     - platform: state
