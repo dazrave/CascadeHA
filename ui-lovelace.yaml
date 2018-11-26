@@ -39,6 +39,9 @@ views:
             - entity: light.garden_flood_light
               name: Garden Floodlight
               icon: mdi:track-light
+            - entity: switch.general_1
+              name: Fan Heater
+              icon: mdi:radiator
             #- entity: light.office_desk_led
             #  name: Office Desk
             #  icon: mdi:desk-lamp
@@ -173,9 +176,8 @@ views:
         - type: entities
           title: Automations
           entities:
-            - automation.weekday_living_room_lamp_off
-            - automation.weekend_living_room_lamp_off
-            - automation.turn_on_after_sunset
+            - automation.turn_on_heater_weekday_morning
+            - automation.turn_off_heater_weekday_morning
 
 
 
