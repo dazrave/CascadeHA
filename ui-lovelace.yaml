@@ -181,8 +181,9 @@ views:
         - type: entities
           title: Automations
           entities:
+            - automation.turn_off_floodlight_after_5_minutes
             - automation.turn_on_heater_weekday_morning
-            - automation.turn_off_heater_weekday_morning
+            - automation.turn_off_fan_heater_after_30_minutes
 
 
 
