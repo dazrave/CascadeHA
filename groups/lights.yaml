@@ -44,9 +44,19 @@ other_lights:
 #    - light.garden_path
 #    - light.rear_flood
 
-#seasonal_lights:
-#  name: Seasonal Lights
-#  icon: mdi:pine-tree
-#  view: no
-#  entities:
-#    - light.xmas_light
+xmas_tree_lights: 
+  name: Xmas Tree Lights
+  icon: mdi:pine-tree
+  view: no
+  entities:
+    - light.general_2
+
+all_xmas_lights:
+  name: All Xmas Lights
+  icon: mdi:gift
+  view: no
+  entities:
+    - group.xmas_tree_lights
+    - light.general_1
+
+
