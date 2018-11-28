@@ -16,7 +16,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
@@ -24,11 +28,7 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
-  - service: media_player.volume_set
-    data_template:
-      entity_id: group.speakers
-      volume_level: 1
+      volume_level: 0.5
 
 # Motion detected whilst alarm is set
 - alias: 'Motion detected (home/away)'
@@ -46,6 +46,15 @@
       - condition: state
         entity_id: alarm_control_panel.home_alarm
         state: 'armed_away'
+      - condition: time
+        after: '08:00:00'
+        before: '05:50:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
   action:
   # Anologue bleep needed here
   - service: notify.slack
@@ -54,7 +63,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
@@ -62,7 +75,7 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
@@ -70,11 +83,7 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
-  - service: media_player.volume_set
-    data_template:
-      entity_id: group.speakers
-      volume_level: 1
+      volume_level: 0.5
 
 # Trigger the alarm
 - alias: 'Trigger Alarm'
