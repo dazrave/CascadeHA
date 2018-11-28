@@ -46,15 +46,15 @@
       - condition: state
         entity_id: alarm_control_panel.home_alarm
         state: 'armed_away'
-      - condition: time
-        after: '08:00:00'
-        before: '05:50:00'
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
+#      - condition: time
+#        after: '08:00:00'
+#        before: '05:50:00'
+#        weekday:
+#          - mon
+#          - tue
+#          - wed
+#          - thu
+#          - fri
   action:
   # Anologue bleep needed here
   - service: notify.slack
