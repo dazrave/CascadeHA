@@ -13,6 +13,7 @@ A [Home Assistant](https://www.home-assistant.io/) config built by [DazRave](htt
 ## Devices
 ### Switches
 - 2x Sonoff Basic flashed with [Tasmota](https://github.com/arendst/Sonoff-Tasmota)
+- 2x Sonoff S20 Plugs flashed with [Tasmota](https://github.com/arendst/Sonoff-Tasmota)
 
 ### Lights
 - 2x RBG LED Wifi Controllers
