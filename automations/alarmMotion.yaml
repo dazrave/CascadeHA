@@ -38,23 +38,23 @@
       entity_id: group.internalpir
       to: 'on'
   condition:
-    condition: or
-    conditions:
+    - condition: time
+      after: '08:00:00'
+      before: '05:50:00'
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: or
+      conditions:
       - condition: state
         entity_id: alarm_control_panel.home_alarm
         state: 'armed_home'
       - condition: state
         entity_id: alarm_control_panel.home_alarm
         state: 'armed_away'
-#      - condition: time
-#        after: '08:00:00'
-#        before: '05:50:00'
-#        weekday:
-#          - mon
-#          - tue
-#          - wed
-#          - thu
-#          - fri
   action:
   # Anologue bleep needed here
   - service: notify.slack
