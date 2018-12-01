@@ -29,7 +29,7 @@ views:
           entities:
             - sensor.last_activity
         - type: entities
-          title: Lights
+          title: Switches
           show_header_toggle: false
           entities:
             - entity: light.kitchen_counter
@@ -42,6 +42,9 @@ views:
             - entity: switch.general_1
               name: Fan Heater
               icon: mdi:radiator
+            - entity: switch.general_2
+              name: Xmas Tree
+              icon: mdi:pine-tree
             #- entity: light.office_desk_led
             #  name: Office Desk
             #  icon: mdi:desk-lamp
