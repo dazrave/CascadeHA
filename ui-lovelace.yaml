@@ -45,6 +45,9 @@ views:
             - entity: switch.general_2
               name: Xmas Tree
               icon: mdi:pine-tree
+            - entity: group.all_xmas_lights
+              name: All Xmas Lights
+              icon: mdi:gift
             #- entity: light.office_desk_led
             #  name: Office Desk
             #  icon: mdi:desk-lamp
