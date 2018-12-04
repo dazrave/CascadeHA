@@ -106,11 +106,11 @@ views:
           entities:
             - camera.front_garden
           camera_image: camera.front_garden
-        - type: picture-glance
-          title: Kitchen
-          entities:
-            - camera.rear_garden
-          camera_image: camera.rear_garden
+        #- type: picture-glance
+        #  title: Kitchen
+        #  entities:
+        #    - camera.rear_garden
+        #  camera_image: camera.rear_garden
 
     # View tab title.
   - icon: mdi:account-group
