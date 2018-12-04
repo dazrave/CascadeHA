@@ -44,12 +44,12 @@ other_lights:
 #    - light.garden_path
 #    - light.rear_flood
 
-xmas_tree_lights: 
+xmas_tree_lights:
   name: Xmas Tree Lights
   icon: mdi:pine-tree
   view: no
   entities:
-    - light.general_2
+    - switch.general_2
 
 all_xmas_lights:
   name: All Xmas Lights
@@ -57,6 +57,7 @@ all_xmas_lights:
   view: no
   entities:
     - group.xmas_tree_lights
-    - light.general_1
+    - switch.general_3
+    - switch.general_4
 
 
