@@ -1,53 +1,60 @@
 google_actions:
   filter:
     include_entities:
-      - light.office_desk_led
       - light.kitchen_counter
       - light.garden_flood_light
       - light.living_room_lamp
-      - input_boolean.garage_door
-      - input_boolean.dog_mode
+      - group.xmas_tree_lights
+      - group.all_xmas_lights
+      - switch.general_1
   entity_config:
     light.living_room_lamp:
       name: Lamp
       aliases:
-       - lamp
-       - light
+       - Lamp
+       - Light
       room: living room
-    light.office_desk_led:
-      name: Desk Light
-      aliases:
-       - light
-       - lamp
-       - desk
-      room: office
     light.garden_flood_light:
       name: Flood Light
       aliases:
+       - Flood Light
        - light
-       - flood light
        - floodlight
       room: garden
     light.kitchen_counter:
       name: Kitchen Counter
       aliases:
-       - lights
-       - light
-       - unit
-       - counter
+       - Counter Lights
+       - Counter
+       - Light
+       - Unit
+       - Unit Lights
+       - Counter
       room: kitchen
-
-    input_boolean.dog_mode:
-      name: alarm
+    group.xmas_tree_lights:
+      name: Christmas Tree Lights
       aliases:
-        - secure home
-        - home alarm
-    #  room: Home
-
-    input_boolean.garage_door:
-      name: Door
+       - Christmas Tree
+       - Christmas Tree Lights
+       - Tree Lights
+      room: living room
+    group.all_xmas_lights:
+      name: Christmas
       aliases:
-        - door
-      #google_assistant: true
-      #google_assistant_type: switch
-      room: garage
+       - All Christmas lights
+       - Christmas lights
+       - Christmas
+       - Make it snow
+       - Happy Christmas
+       - Merry Christmas
+       - Festive Greetings
+    switch.general_1:
+      name: Fan heater
+      aliases:
+       - Fan Heater
+       - Heater
+       - the bedroom is cold
+       - Warm up the bedroom
+       - Heat the bedroom
+      room: bedroom
+

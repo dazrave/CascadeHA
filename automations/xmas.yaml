@@ -8,12 +8,12 @@
     - service: light.turn_on
       entity_id: group.all_xmas_lights
 
-- alias: 'Motion triggered Xmas Tree lights'
+- alias: 'Motion triggered xmas tree lights'
   initial_state: 'on'
   trigger:
-  - platform: state
-    entity_id: binary_sensor.living_room
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.living_room
+      to: 'on'
   condition:
     - condition: state
       entity_id: group.xmas_tree_lights
@@ -34,11 +34,11 @@
 - alias: Xmas tree timer
   initial_state: 'on'
   trigger:
-  - platform: state
-    entity_id: group.groundfloorpir
-    to: 'off'
-    for:
-      minutes: 30
+    - platform: state
+      entity_id: group.groundfloorpir
+      to: 'off'
+      for:
+        minutes: 30
   condition:
     condition: and
     conditions:
