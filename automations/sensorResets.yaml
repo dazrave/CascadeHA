@@ -4,7 +4,7 @@
   hide_entity: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.movement_upstairs
+    entity_id: binary_sensor.wireless_sensor
     to: 'on'
     for:
       seconds: 5

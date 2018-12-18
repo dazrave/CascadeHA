@@ -48,13 +48,12 @@ google_actions:
        - Happy Christmas
        - Merry Christmas
        - Festive Greetings
-    switch.general_1:
-      name: Fan heater
+    switch.general_3:
+      name: Window Lights
       aliases:
-       - Fan Heater
-       - Heater
-       - the bedroom is cold
-       - Warm up the bedroom
-       - Heat the bedroom
+       - Window lights
+       - Bedroom christmas lights
+       - Bedroom lights
+       - lights
       room: bedroom
 

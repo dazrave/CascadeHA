@@ -76,7 +76,7 @@ views:
     theme: dark-mode
     cards:
     # row 1
-    - type: horizontal-stack
+    - type: vertical-stack
       cards:
         - type: entities
           title: Security
@@ -84,15 +84,20 @@ views:
           entities:
             - alarm_control_panel.home_alarm
             - sensor.last_activity
-            - automation.turn_on_alarm_when_away
-            - automation.turn_on_alarm_when_sleeping_on_weekday
-            - switch.alarm_siren
-            - binary_sensor.movement_upstairs
-            - automation.reset_movement_upstairs
-            #- binary_sensor.back_room
-            #- binary_sensor.kitchen
-            #- binary_sensor.landing
-            #- binary_sensor.living_room
+            - entity: switch.alarm_siren
+              name: Panic Alarm
+              icon: mdi:alarm-bell
+        - type: entities
+          title: Security Automations
+          show_header_toggle: false
+          entities:
+            - entity: automation.turn_on_alarm_when_away
+              name: Arm when away
+              icon: mdi:arrow-decision-auto
+            - entity: automation.turn_on_alarm_when_sleeping_on_weekday
+              name: Arm when sleeping (Sun-Thu)
+              icon: mdi:arrow-decision-auto
+
     # row 2
     - type: horizontal-stack
       cards:
@@ -108,11 +113,23 @@ views:
           entities:
             - camera.front_garden
           camera_image: camera.front_garden
+
         #- type: picture-glance
         #  title: Kitchen
         #  entities:
         #    - camera.rear_garden
         #  camera_image: camera.rear_garden
+    - type: horizontal-stack
+      cards:
+        - type: entities
+          title: Motion Sensors
+          show_header_toggle: false
+          entities:
+            - binary_sensor.wireless_sensor
+            # - binary_sensor.back_room
+            - binary_sensor.kitchen
+            - binary_sensor.landing
+            - binary_sensor.living_room
 
     # View tab title.
   - icon: mdi:account-group

@@ -42,8 +42,8 @@
         to_state: 'below_horizon'
 
   - platform: mqtt
-    alias: "Movement Upstairs"
-    name: "Movement Upstairs"
+    alias: "Wireless Sensor"
+    name: "Wireless Sensor"
     payload_on: "1"
     payload_off: "key1_off"
     state_topic: "tele/sonoffb/RESULT"
