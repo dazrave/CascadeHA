@@ -41,4 +41,24 @@
         platform: 'state'
         to_state: 'below_horizon'
 
+  - platform: mqtt
+    alias: "Movement Upstairs"
+    name: "Movement Upstairs"
+    payload_on: "1"
+    payload_off: "key1_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false
 
+  - platform: mqtt
+    alias: "Remote Button 3"
+    name: "Remote Button 3"
+    payload_on: "3"
+    payload_off: "key3_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false

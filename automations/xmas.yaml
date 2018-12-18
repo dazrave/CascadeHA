@@ -17,8 +17,8 @@
         - wed
         - thu
   action:
-    - service: light.turn_off
-      entity_id: light.living_room_lamp
+    - service: homeassistant.turn_off
+      entity_id: group.all_xmas_lights
 
 - alias: Auto turn off all xmas lights (weekend)
   initial_state: 'on'
@@ -36,7 +36,7 @@
         - fri
         - sat
   action:
-    - service: light.turn_off
+    - service: homeassistant.turn_off
       entity_id: group.all_xmas_lights
 
 - alias: Xmas turn off timer
@@ -57,7 +57,7 @@
         after: '13:00:00'
         before: '00:00:00'
   action:
-  - service: light.turn_off
+  - service: homeassistant.turn_off
     entity_id: group.all_xmas_lights
 
 - alias: Motion triggered xmas lights
@@ -68,8 +68,8 @@
     to: 'on'
   condition:
     - condition: state
-      entity_id: group.all_xmas_lights
+      entity_id: group.xmas_tree_lights
       state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: group.all_xmas_lights
+    - service: homeassistant.turn_on
+      entity_id: group.xmas_tree_lights
