@@ -201,9 +201,11 @@ views:
     - type: vertical-stack
       cards:
         - type: entities
-          title: Automations
+          title: General Automations
           entities:
-            - automation.turn_off_floodlight_after_5_minutes
+            - entity: automation.turn_off_floodlight_after_5_minutes
+              name: Floodlight timer (5 minutes)
+              icon: mdi:arrow-decision-auto
     # Right stack
     #- type: vertical-stack
     #  icon: mdi:gift
