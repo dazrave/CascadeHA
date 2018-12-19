@@ -108,3 +108,16 @@
   - service: notify.slack
     data:
       message: "{{states('sensor.last_activity')}} - House alarm has been activated!"
+
+# Wireless sensor Alert
+- alias: 'Wireless Sensor alert'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.wireless_sensor
+      to: 'on'
+  action:
+  # Anologue bleep needed here
+  - service: notify.slack
+    data:
+      message: "Wireless Sensor Alert"
