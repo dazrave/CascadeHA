@@ -7,7 +7,7 @@
     entity_id: binary_sensor.wireless_sensor
     to: 'on'
     for:
-      seconds: 10
+      seconds: 30
   action:
   - service: mqtt.publish
     data:
