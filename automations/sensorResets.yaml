@@ -24,7 +24,7 @@
     entity_id: binary_sensor.remote_button_3
     to: 'on'
     for:
-      seconds: 5
+      seconds: 30
   action:
   - service: mqtt.publish
     data:
