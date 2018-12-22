@@ -116,8 +116,11 @@
     - platform: state
       entity_id: binary_sensor.wireless_sensor
       to: 'on'
+      from: 'off'
+      for:
+        seconds: 30
   action:
   # Anologue bleep needed here
   - service: notify.slack
     data:
-      message: "Wireless Sensor Alert"
+      message: !secret wireless_pir_sensor

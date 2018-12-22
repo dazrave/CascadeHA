@@ -69,9 +69,9 @@ views:
         #      name: Rain Chance
 
     # View tab title.
-  - icon: mdi:cctv
-    title: CCTV
-    id: cctv
+  - icon: mdi:alarm-bell
+    title: Security
+    id: Security
     background: grey
     theme: dark-mode
     cards:
@@ -125,7 +125,8 @@ views:
           title: Motion Sensors
           show_header_toggle: false
           entities:
-            - binary_sensor.wireless_sensor
+            - entity: binary_sensor.wireless_sensor
+              name: Porch Motion
             # - binary_sensor.back_room
             - binary_sensor.kitchen
             - binary_sensor.landing
