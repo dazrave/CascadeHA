@@ -29,8 +29,8 @@ views:
           entities:
             - sensor.last_activity
         - type: entities
-          title: Lights
-          show_header_toggle: false
+          title: All Lights
+          show_header_toggle: true
           entities:
             - entity: light.kitchen_counter
               name: Kitchen Counter
@@ -39,16 +39,19 @@ views:
             - entity: light.garden_flood_light
               name: Garden Floodlight
               icon: mdi:track-light
-            - entity: switch.general_1
-              name: Fan Heater
-              icon: mdi:radiator
             #- entity: light.office_desk_led
             #  name: Office Desk
             #  icon: mdi:desk-lamp
-
-    #    - type: glance
-    #      entities:
-    #        - sensor.bins
+        - type: entities
+          title: Festive Lights
+          show_header_toggle: true
+          entities:
+            - entity: switch.general_2
+              name: Xmas Tree
+              icon: mdi:pine-tree
+            - entity: switch.general_3
+              name: Bedroom Window
+              icon: mdi:hotel
 
     # Right stack
     - type: vertical-stack
@@ -66,14 +69,14 @@ views:
         #      name: Rain Chance
 
     # View tab title.
-  - icon: mdi:cctv
-    title: CCTV
-    id: cctv
+  - icon: mdi:alarm-bell
+    title: Security
+    id: Security
     background: grey
     theme: dark-mode
     cards:
     # row 1
-    - type: horizontal-stack
+    - type: vertical-stack
       cards:
         - type: entities
           title: Security
@@ -81,13 +84,20 @@ views:
           entities:
             - alarm_control_panel.home_alarm
             - sensor.last_activity
-            - automation.turn_on_alarm_when_away
-            - automation.turn_on_alarm_when_sleeping_on_weekday
-            - switch.alarm_siren
-            #- binary_sensor.back_room
-            #- binary_sensor.kitchen
-            #- binary_sensor.landing
-            #- binary_sensor.living_room
+            - entity: switch.alarm_siren
+              name: Panic Alarm
+              icon: mdi:alarm-bell
+        - type: entities
+          title: Security Automations
+          show_header_toggle: false
+          entities:
+            - entity: automation.turn_on_alarm_when_away
+              name: Arm when away
+              icon: mdi:arrow-decision-auto
+            - entity: automation.turn_on_alarm_when_sleeping_on_weekday
+              name: Arm when sleeping (Sun-Thu)
+              icon: mdi:arrow-decision-auto
+
     # row 2
     - type: horizontal-stack
       cards:
@@ -103,6 +113,24 @@ views:
           entities:
             - camera.front_garden
           camera_image: camera.front_garden
+
+        #- type: picture-glance
+        #  title: Kitchen
+        #  entities:
+        #    - camera.rear_garden
+        #  camera_image: camera.rear_garden
+    - type: horizontal-stack
+      cards:
+        - type: entities
+          title: Motion Sensors
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.wireless_sensor
+              name: Porch Motion
+            # - binary_sensor.back_room
+            - binary_sensor.kitchen
+            - binary_sensor.landing
+            - binary_sensor.living_room
 
     # View tab title.
   - icon: mdi:account-group
@@ -174,10 +202,21 @@ views:
     - type: vertical-stack
       cards:
         - type: entities
-          title: Automations
+          title: General Automations
           entities:
-            - automation.turn_on_heater_weekday_morning
-            - automation.turn_off_heater_weekday_morning
+            - entity: automation.turn_off_floodlight_after_5_minutes
+              name: Floodlight timer (5 minutes)
+              icon: mdi:arrow-decision-auto
+    # Right stack
+    #- type: vertical-stack
+    #  icon: mdi:gift
+    #  cards:
+    #    - type: entities
+    #      title: Festive Automations
+    #      entities:
+          #  - automation.auto_turn_on_all_xmas_lights_before_sunset
+          #  - automation.motion_triggered_xmas_tree_lights
+          #  - automation.auto_turn_off_all_xmas_lights
 
 
 

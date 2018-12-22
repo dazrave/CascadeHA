@@ -34,3 +34,29 @@
     payload_not_available: "Offline"
     retain: false
     optimistic: false
+
+  - platform: mqtt
+    name: "General 3"
+    state_topic: "stat/sonoff8/POWER"
+    command_topic: "cmnd/sonoff8/POWER"
+    availability_topic: "tele/sonoff8/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
+    optimistic: false
+
+  - platform: mqtt
+    name: "General 4"
+    state_topic: "stat/sonoff9/POWER"
+    command_topic: "cmnd/sonoff9/POWER"
+    availability_topic: "tele/sonoff9/LWT"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    retain: false
+    optimistic: false

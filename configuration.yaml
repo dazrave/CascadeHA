@@ -119,11 +119,11 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 
-bmw_connected_drive:
-  name:
-    username: !secret bmw_username
-    password: !secret bmw_password
-    region: "rest_of_world"
+#bmw_connected_drive:
+#  name:
+#    username: !secret bmw_username
+#    password: !secret bmw_password
+#    region: "rest_of_world"
 
 # Types
 group: !include_dir_merge_named groups

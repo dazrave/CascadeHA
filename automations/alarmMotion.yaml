@@ -16,7 +16,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
@@ -24,11 +28,7 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
-  - service: media_player.volume_set
-    data_template:
-      entity_id: group.speakers
-      volume_level: 1
+      volume_level: 0.5
 
 # Motion detected whilst alarm is set
 - alias: 'Motion detected (home/away)'
@@ -38,8 +38,17 @@
       entity_id: group.internalpir
       to: 'on'
   condition:
-    condition: or
-    conditions:
+    - condition: time
+      after: '08:00:00'
+      before: '05:50:00'
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: or
+      conditions:
       - condition: state
         entity_id: alarm_control_panel.home_alarm
         state: 'armed_home'
@@ -54,7 +63,11 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
+      volume_level: 1
+  - service: media_player.volume_set
+    data_template:
+      entity_id: group.speakers
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
@@ -62,7 +75,7 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
+      volume_level: 0.5
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
@@ -70,11 +83,7 @@
   - service: media_player.volume_set
     data_template:
       entity_id: group.speakers
-      volume_level: 0.8
-  - service: media_player.volume_set
-    data_template:
-      entity_id: group.speakers
-      volume_level: 1
+      volume_level: 0.5
 
 # Trigger the alarm
 - alias: 'Trigger Alarm'
@@ -99,3 +108,19 @@
   - service: notify.slack
     data:
       message: "{{states('sensor.last_activity')}} - House alarm has been activated!"
+
+# Wireless sensor Alert
+- alias: 'Wireless Sensor alert'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.wireless_sensor
+      to: 'on'
+      from: 'off'
+      for:
+        seconds: 30
+  action:
+  # Anologue bleep needed here
+  - service: notify.slack
+    data:
+      message: !secret wireless_pir_sensor

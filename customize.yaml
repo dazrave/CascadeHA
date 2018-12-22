@@ -92,6 +92,8 @@
       device_class: motion
     binary_sensor.driveway:
       device_class: motion
+    binary_sensor.wireless_sensor:
+      device_class: motion
 
     switch.alarm:
       icon: mdi:alarm-bell

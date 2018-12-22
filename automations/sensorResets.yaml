@@ -1,0 +1,32 @@
+# MQTT Wireless sensor RESET
+- alias: reset mobile PIR
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.wireless_sensor
+    to: 'on'
+    for:
+      seconds: 5
+  action:
+  - service: mqtt.publish
+    data:
+      topic: tele/sonoffb/RESULT
+      payload: "key1_off"
+
+
+# MQTT Wireless sensor RESET
+- alias: reset remote button 3a
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.remote_button_3
+    to: 'on'
+    for:
+      seconds: 30
+  action:
+  - service: mqtt.publish
+    data:
+      topic: tele/sonoffb/RESULT
+      payload: "key3_off"
