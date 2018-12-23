@@ -121,12 +121,17 @@
       to: 'off'
       for:
         seconds: 20
-  #condition:
-  #  - condition: state
-  #    entity_id: alarm_control_panel.home_alarm
-  #    state: 'armed_away'
+  condition:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: 'armed_home'
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: 'armed_away'
   action:
   # Anologue bleep needed here
   - service: notify.slack
     data:
-      message: "TEST Porch Motion warning."
+      message: "Porch Motion warning."
