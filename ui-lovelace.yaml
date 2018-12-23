@@ -47,11 +47,14 @@ views:
           show_header_toggle: true
           entities:
             - entity: switch.general_2
-              name: Xmas Tree
+              name: Xmas Tree & Reindeer
               icon: mdi:pine-tree
             - entity: switch.general_3
               name: Bedroom Window
               icon: mdi:hotel
+            - entity: switch.general_4
+              name: Hall Tree
+              icon: mdi:pine-tree
 
     # Right stack
     - type: vertical-stack
@@ -95,7 +98,16 @@ views:
               name: Arm when away
               icon: mdi:arrow-decision-auto
             - entity: automation.turn_on_alarm_when_sleeping_on_weekday
-              name: Arm when sleeping (Sun-Thu)
+              name: Arm when sleeping (Week days)
+              icon: mdi:arrow-decision-auto
+            - entity: automation.turn_off_alarm_when_sleeping_on_weekday
+              name: Disarm in morning (Week days)
+              icon: mdi:arrow-decision-auto
+            - entity: automation.turn_on_alarm_when_sleeping_on_weekend
+              name: Arm when sleeping (Weekend)
+              icon: mdi:arrow-decision-auto
+            - entity: automation.turn_off_alarm_when_sleeping_on_weekend
+              name: Disarm in morning (Weekend)
               icon: mdi:arrow-decision-auto
 
     # row 2

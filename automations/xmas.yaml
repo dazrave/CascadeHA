@@ -54,8 +54,8 @@
         entity_id: group.all_xmas_lights
         state: 'on'
       - condition: time
-        after: '13:00:00'
-        before: '00:00:00'
+        after: '00:00:00'
+        before: '09:00:00'
   action:
   - service: homeassistant.turn_off
     entity_id: group.all_xmas_lights
