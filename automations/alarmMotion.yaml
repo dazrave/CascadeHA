@@ -116,11 +116,22 @@
     - platform: state
       entity_id: binary_sensor.wireless_sensor
       to: 'on'
-      from: 'off'
+    - platform: state
+      entity_id: binary_sensor.wireless_sensor
+      to: 'off'
       for:
-        seconds: 30
+        seconds: 20
+  condition:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: 'armed_home'
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: 'armed_away'
   action:
   # Anologue bleep needed here
   - service: notify.slack
     data:
-      message: !secret wireless_pir_sensor
+      message: "Porch Motion warning."
