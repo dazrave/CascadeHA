@@ -64,6 +64,8 @@
         {% endif %}"
 
 # Security
+    binary_sensor.porch_door:
+      device_class: opening
     binary_sensor.front_door:
       device_class: opening
     binary_sensor.kitchen_door:

@@ -53,10 +53,10 @@
     retain: false
 
   - platform: mqtt
-    alias: "Remote Button 3"
-    name: "Remote Button 3"
-    payload_on: "3"
-    payload_off: "key3_off"
+    alias: "Porch Door"
+    name: "Porch Door"
+    payload_on: "4"
+    payload_off: "key4_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
     optimistic: false

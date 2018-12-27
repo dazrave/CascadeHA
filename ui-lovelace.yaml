@@ -143,6 +143,7 @@ views:
             - binary_sensor.kitchen
             - binary_sensor.landing
             - binary_sensor.living_room
+            - binary_sensor.porch_door
 
     # View tab title.
   - icon: mdi:account-group

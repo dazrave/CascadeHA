@@ -16,17 +16,17 @@
 
 
 # MQTT Wireless sensor RESET
-- alias: reset remote button 3a
+- alias: porch door reset
   initial_state: 'on'
   hide_entity: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.remote_button_3
+    entity_id: binary_sensor.porch_door
     to: 'on'
     for:
-      seconds: 30
+      seconds: 20
   action:
   - service: mqtt.publish
     data:
       topic: tele/sonoffb/RESULT
-      payload: "key3_off"
+      payload: "key4_off"

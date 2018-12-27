@@ -184,7 +184,7 @@
         entity_id: alarm_control_panel.home_alarm
         state: 'armed_away'
         for:
-          minutes: 30
+          minutes: 5
   action:
   - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.home_alarm
