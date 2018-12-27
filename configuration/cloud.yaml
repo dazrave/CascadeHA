@@ -7,6 +7,8 @@ google_actions:
       - group.xmas_tree_lights
       - group.all_xmas_lights
       - switch.general_1
+      - switch.general_3
+      - switch.general_4
   entity_config:
     light.living_room_lamp:
       name: Lamp

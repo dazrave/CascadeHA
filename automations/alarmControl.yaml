@@ -80,22 +80,21 @@
         entity_id: group.internalpir
         state: 'off'
         for:
-          minutes: 30
+          minutes: 10
       - condition: state
         entity_id: group.residents
         state: 'not_home'
         for:
-          minutes: 30
+          minutes: 10
       - condition: state
         entity_id: alarm_control_panel.home_alarm
         state: 'disarmed'
   action:
   - service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.home_alarm
-  - service: tts.google_say
-    entity_id: group.speakers
+  - service: notify.slack
     data:
-      message: "Alarm ON"
+      message: "Alarm is ON"
 
 # Turn on alarm if residents are potentially sleeping (Weekday)
 - alias: 'Turn on alarm when sleeping on weekday'
@@ -201,10 +200,10 @@
     data_template:
       entity_id: group.speakers
       volume_level: 1
-  - service: tts.google_say
-    entity_id: group.speakers
+  - service: notify.slack
     data:
-      message: "Alarm OFF"
+      message: "Alarm is OFF"
+
 
 # Turn on alarm if residents are potentially sleeping (Weekend)
 - alias: 'Turn on alarm when sleeping on weekend'

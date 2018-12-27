@@ -19,3 +19,13 @@
     name: Home Alarm
     initial: off
     icon: mdi:alarm
+
+  lockdown_full:
+    name: Full Lockdown
+    initial: off
+    icon: mdi:lock
+
+  lockdown_partial:
+    name: Full Lockdown
+    initial: off
+    icon: mdi:lock-outline
