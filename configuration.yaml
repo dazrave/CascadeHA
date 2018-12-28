@@ -97,9 +97,10 @@ logbook:
 # Enables a map showing the location of tracked devices
 map:
 
-#cast:
-#  media_player:
-#  - host: 192.168.0.40
+cast:
+  media_player:
+  - host: 192.168.0.230
+  - host: 192.168.0.231
 
 # Track the sun
 sun:
@@ -149,6 +150,7 @@ zone: !include zones.yaml
 cloud: !include configuration/cloud.yaml
 sensor: !include configuration/sensors.yaml
 input_boolean: !include configuration/input_boolean.yaml
+input_select: !include configuration/input_select.yaml
 binary_sensor: !include configuration/binary_sensors.yaml
 light: !include configuration/lights.yaml
 camera: !include configuration/cameras.yaml

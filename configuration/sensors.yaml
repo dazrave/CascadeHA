@@ -131,3 +131,29 @@
 #  minute:
 #    - 0
 #    - 30
+
+- platform: template
+  sensors:
+    darren_rssi_bedroom:
+      value_template: '{{ states.device_tracker.darren_bt_bedroom.attributes.rssi }}'
+
+- platform: template
+  sensors:
+    darren_rssi_living_room:
+      value_template: '{{ states.device_tracker.darren_bt_living_room.attributes.rssi }}'
+
+- platform: template
+  sensors:
+    darren_rssi_office:
+      value_template: '{{ states.device_tracker.darren_bt_office.attributes.rssi }}'
+
+- platform: template
+  sensors:
+    darren_rssi_kitchen:
+      value_template: '{{ states.device_tracker.darren_bt_kitchen.attributes.rssi }}'
+
+- platform: template
+  sensors:
+    darren_room_status:
+      value_template: '{{ states.input_select.darren_room_location.state }}'
+      friendly_name: 'Darren Room Location'

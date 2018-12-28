@@ -55,6 +55,14 @@
     device_tracker.firestick:
       device_class: power
 
+    group.living_room_tv:
+      value_template: "
+        {% if is_state('group.living_room_tv', 'home') %}
+          On
+        {% else %}
+          Off
+        {% endif %}"
+
     input_boolean.dog_mode:
       value_template: "
         {% if is_state('input_boolean.dog_mode', 'on') %}
@@ -62,6 +70,8 @@
         {% else %}
           away
         {% endif %}"
+
+
 
 # Security
     binary_sensor.porch_door:

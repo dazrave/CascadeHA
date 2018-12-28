@@ -76,3 +76,18 @@ reedswitches:
     - binary_sensor.porch_door
     #- binary_sensor.kitchen_door
     #- binary_sensor.garage_door
+
+lockdown_partial:
+  name: Partial Lockdown
+  view: no
+  control: hidden
+  entities:
+    - group.reedswitches
+
+lockdown_full:
+  name: Full Lockdown
+  view: no
+  control: hidden
+  entities:
+    - group.lockdown_partial
+    # - group.externalpir

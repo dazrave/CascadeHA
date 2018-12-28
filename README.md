@@ -35,3 +35,16 @@ A [Home Assistant](https://www.home-assistant.io/) config built by [DazRave](htt
 - 1x Nest Thermostat
 - 2x Nest Protect
 - 1x Sonoff Bridge (433mhz)
+
+## Features & Automations
+### Security
+| Action | Type | Description |
+| ------ | ------ | ------ |
+| Set Alarm when away | Auto | Activates alarm when all residents are away from home at anytime |
+| Turn off alarm when home | Auto | Turns off alarm when any resident arrives home at anytime |
+| Set Alarm when sleeping | Auto | Activates alarm when system is satisfied all residents are sleeping |
+| Turn off alarm when waking | Auto | Turns off alarm when any resident wakes up |
+| Alarm reminder | Auto | Triggers reminder 'chirp' if alarm is set and **any** security sensor is activated |
+| Trigger Siren | Auto | Triggers siren 30 seconds after _'Alarm Reminder'_ if alarm is still set |
+| Full Lockdown | Manual | Push alerts to every resident from **any** activated security sensors (does not trigger siren) |
+| Partial Lockdown | Manual | Push alerts to every resident from activated **external** security sensors (does not trigger siren) |

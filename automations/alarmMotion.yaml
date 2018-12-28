@@ -116,11 +116,6 @@
     - platform: state
       entity_id: binary_sensor.wireless_sensor
       to: 'on'
-    - platform: state
-      entity_id: binary_sensor.wireless_sensor
-      to: 'off'
-      for:
-        seconds: 20
   condition:
     - condition: or
       conditions:

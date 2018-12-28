@@ -1,0 +1,9 @@
+darren_room_location:
+  name: Darren Room Location
+  options:
+      - Bedroom
+      - Living Room
+      - Office
+      - Kitchen
+      - Away
+      - Home

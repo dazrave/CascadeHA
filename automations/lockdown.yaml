@@ -1,0 +1,92 @@
+# Partial Lockdown
+- alias: 'partial lockdown message'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.lockdown_partial
+      to: 'on'
+      from: 'off'
+    - platform: state
+      entity_id: input_boolean.lockdown_partial
+      to: 'off'
+      from: 'on'
+  condition:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: input_boolean.lockdown_full
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.lockdown_full
+        state: 'off'
+  action:
+  - service: notify.test
+    data_template:
+      message: ""
+      data:
+        attachments:
+        - color: >
+            #ffdfba
+          title: >
+            Partial Lockdown is {{states('input_boolean.lockdown_partial')}}
+          text: |
+            Time: {{now().strftime("%c")}}
+
+- alias: 'partial lockdown sensor'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: group.lockdown_partial
+      to: 'on'
+      for:
+        seconds: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.lockdown_partial
+      state: 'on'
+  action:
+  - service: notify.test
+    data:
+      message: "{{states('sensor.last_activity')}}"
+
+# Full Lockdown
+- alias: 'full lockdown message'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.lockdown_full
+      to: 'on'
+      from: 'off'
+    - platform: state
+      entity_id: input_boolean.lockdown_full
+      to: 'off'
+      from: 'on'
+  action:
+  - service: notify.test
+    data_template:
+      message: ""
+      data:
+        attachments:
+        - color: >
+            #ffb3ba
+          title: >
+            Full Lockdown is {{states('input_boolean.lockdown_full')}}
+          text: |
+            Time: {{now().strftime("%c")}}
+
+- alias: 'full lockdown sensor'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: group.lockdown_full
+      to: 'on'
+      for:
+        seconds: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.lockdown_full
+      state: 'on'
+  action:
+  - service: notify.test
+    data:
+      message: "{{states('sensor.last_activity')}}"
