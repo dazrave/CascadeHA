@@ -1,14 +1,14 @@
-- alias: Turn off floodlight after 5 minutes
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: light.garden_flood_light
-      to: 'on'
-      for:
-        minutes: 5
-  action:
-    - service: light.turn_off
-      entity_id: light.garden_flood_light
+#- alias: Turn off floodlight after 5 minutes
+#  initial_state: 'on'
+#  trigger:
+#    - platform: state
+#      entity_id: light.garden_flood_light
+#      to: 'on'
+#      for:
+#        minutes: 5
+#  action:
+#    - service: light.turn_off
+#      entity_id: light.garden_flood_light
 
 #
 #- alias: 'Turn on heater weekday morning'

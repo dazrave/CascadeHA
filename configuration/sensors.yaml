@@ -152,6 +152,21 @@
     darren_rssi_kitchen:
       value_template: '{{ states.device_tracker.darren_bt_kitchen.attributes.rssi }}'
 
+#- platform: template
+#  sensors:
+#    darren_rssi_upstairs:
+#      value_template: '{{ states.device_tracker.darren_bt_bedroom.attributes.rssi + states.device_tracker.darren_bt_office.attributes.rssi }}'
+
+#- platform: template
+#  sensors:
+#    darren_rssi_downstairs:
+#      value_template: '{{ states.device_tracker.darren_bt_living_room.attributes.rssi + states.device_tracker.darren_bt_kitchen.attributes.rssi }}'
+
+#- platform: template
+#  sensors:
+#    darren_rssi_home:
+#      value_template: '{{ sensor.darren_rssi_downstairs + sensor.darren_rssi_upstairs }}'
+
 - platform: template
   sensors:
     darren_room_status:

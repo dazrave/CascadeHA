@@ -3,16 +3,8 @@ kitchen_lights:
   icon: mdi:silverware-variant
   view: no
   entities:
-    - group.kitchen_unit_lights
+    - light.kitchen_counter
 #    - light.kitchen_main
-
-#kitchen_unit_lights:
-#  name: Kitchen Unit Lights
-#  icon: mdi:silverware-variant
-#  view: no
-#  entities:
-#    - light.kitchen_led_left
-#    - light.kitchen_led_right
 
 living_room_lights:
   name: Living Room
@@ -60,4 +52,9 @@ all_xmas_lights:
     - switch.general_3
     - switch.general_4
 
-
+downstairs_lights:
+  name: Downstairs Lights
+  view: no
+  entities:
+    - group.living_room_lights
+    - group.kitchen_lights

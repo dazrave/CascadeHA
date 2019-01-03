@@ -8,7 +8,7 @@ residents:
     - group.darren
     - group.stephanie
     # - input_boolean.dog_mode
-    # - input_boolean.guest_mode
+    - input_boolean.guest_mode
 
 darren:
   name: Darren
@@ -16,6 +16,7 @@ darren:
   entities:
     - device_tracker.darren
     - device_tracker.google_maps_109369459484370838012
+    - sensor.darren_room_status
 
 stephanie:
   name: Stephanie
@@ -24,14 +25,14 @@ stephanie:
     - device_tracker.stephanie
     - device_tracker.google_maps_112615938731075593608
 
-speakers:
-  name: speakers
-  view: yes
-  entities:
-    - media_player.kitchen_speaker
-    - media_player.living_room_speaker
-    - media_player.bedroom_speaker
-    - media_player.office_speaker
+#speakers:
+#  name: speakers
+#  view: yes
+#  entities:
+#    - media_player.kitchen_speaker
+#    - media_player.living_room_speaker
+#    - media_player.bedroom_speaker
+#    - media_player.office_speaker
 
 living_room_tv:
   name: Living Room TV

@@ -71,8 +71,6 @@
           away
         {% endif %}"
 
-
-
 # Security
     binary_sensor.porch_door:
       device_class: opening

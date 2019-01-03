@@ -15,10 +15,10 @@ homeassistant:
 #    config: !include floorplan.yaml
 
 panel_iframe:
-#  cctv:
-#    title: 'CCTV'
-#    icon: mdi:cctv
-#    url: 'http://cascadehome.net:8181/login.htm'
+  automations:
+    title: 'Automations'
+    icon: mdi:arrow-decision-auto
+    url: !secret node_red
 
 # Show links to resources in log and frontend
 # introduction:
@@ -35,6 +35,8 @@ http:
   api_password: !secret api_password
 
 api:
+
+websocket_api:
 
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
@@ -54,17 +56,17 @@ media_player:
   - platform: plex
 
 # Alerts
-alert:
-  garage_door:
-    name: Garage is open
-    done_message: Garage is closed
-    entity_id: sensor.garage_door
-    state: 'Open'
-    repeat: 30
-    can_acknowledge: True
-    skip_first: True
-    notifiers:
-      - slack
+#alert:
+#  garage_door:
+#    name: Garage is open
+#    done_message: Garage is closed
+#    entity_id: sensor.garage_door
+#    state: 'Open'
+#    repeat: 30
+#    can_acknowledge: True
+#    skip_first: True
+#    notifiers:
+#      - slack
 
 # View all events in a logbook
 logbook:
@@ -99,8 +101,12 @@ map:
 
 cast:
   media_player:
+  - host: 192.168.0.221
+  - host: 192.168.0.222
+  - host: 192.168.0.223
+  - host: 192.168.0.224
   - host: 192.168.0.230
-  - host: 192.168.0.231
+  # - host: 192.168.0.231
 
 # Track the sun
 sun:

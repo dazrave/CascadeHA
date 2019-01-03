@@ -1,0 +1,167 @@
+# darren is in the living Room using Google Home BT tracking
+- alias: Darren is in the Living Room
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: sensor.darren_rssi_living_room
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_office.state ) > ( states.sensor.darren_rssi_living_room.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_bedroom.state ) > ( states.sensor.darren_rssi_living_room.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_kitchen.state ) > ( states.sensor.darren_rssi_living_room.state )  }}"
+  action:
+    - delay: '00:00:05'
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_office.state ) > ( states.sensor.darren_rssi_living_room.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_bedroom.state ) > ( states.sensor.darren_rssi_living_room.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_kitchen.state ) > ( states.sensor.darren_rssi_living_room.state )  }}"
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.darren_living_room_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_bedroom_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_office_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_kitchen_presence
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.darren_room_location
+        option: Living Room
+
+# darren is in the living Room using Google Home BT tracking
+- alias: Darren is in the kitchen
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: sensor.darren_rssi_kitchen
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_office.state ) > ( states.sensor.darren_rssi_kitchen.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_bedroom.state ) > ( states.sensor.darren_rssi_kitchen.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_living_room.state ) > ( states.sensor.darren_rssi_kitchen.state )  }}"
+  action:
+    - delay: '00:00:05'
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_office.state ) > ( states.sensor.darren_rssi_kitchen.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_bedroom.state ) > ( states.sensor.darren_rssi_kitchen.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_living_room.state ) > ( states.sensor.darren_rssi_kitchen.state )  }}"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_living_room_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_bedroom_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_office_presence
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.darren_kitchen_presence
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.darren_room_location
+        option: Kitchen
+
+# darren is in the living Room using Google Home BT tracking
+- alias: Darren is in the bedroom
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: sensor.darren_rssi_bedroom
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_office.state ) > ( states.sensor.darren_rssi_bedroom.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_kitchen.state ) > ( states.sensor.darren_rssi_bedroom.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_living_room.state ) > ( states.sensor.darren_rssi_bedroom.state )  }}"
+  action:
+    - delay: '00:00:05'
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_office.state ) > ( states.sensor.darren_rssi_bedroom.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_kitchen.state ) > ( states.sensor.darren_rssi_bedroom.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_living_room.state ) > ( states.sensor.darren_rssi_bedroom.state )  }}"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_living_room_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_bedroom_presence
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.darren_office_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_kitchen_presence
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.darren_room_location
+        option: Bedroom
+
+# darren is in the living Room using Google Home BT tracking
+- alias: Darren is in the office
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: sensor.darren_rssi_office
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_bedroom.state ) > ( states.sensor.darren_rssi_office.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_kitchen.state ) > ( states.sensor.darren_rssi_office.state )  }}"
+    - condition: template
+      value_template: "{{ ( states.sensor.darren_rssi_living_room.state ) > ( states.sensor.darren_rssi_office.state )  }}"
+  action:
+    - delay: '00:00:05'
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_bedroom.state ) > ( states.sensor.darren_rssi_office.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_kitchen.state ) > ( states.sensor.darren_rssi_office.state )  }}"
+      - condition: template
+        value_template: "{{ ( states.sensor.darren_rssi_living_room.state ) > ( states.sensor.darren_rssi_office.state )  }}"
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_living_room_presence
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.darren_bedroom_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_office_presence
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.darren_kitchen_presence
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.darren_room_location
+        option: Office
