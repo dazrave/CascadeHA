@@ -8,7 +8,7 @@ residents:
     - group.darren
     - group.stephanie
     # - input_boolean.dog_mode
-    - input_boolean.guest_mode
+    - input_select.guest
 
 darren:
   name: Darren

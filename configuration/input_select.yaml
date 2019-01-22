@@ -7,3 +7,10 @@ darren_room_location:
       - Office
       - Away
       - Home
+
+guest:
+  name: Guest
+  options:
+    - Home
+    - Away
+  initial: Away

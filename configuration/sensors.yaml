@@ -43,6 +43,12 @@
   email:
     - !secret darren_email
 
+- platform: waze_travel_time
+  name: "Darren to destination"
+  origin: group.darren
+  destination: input_select.locations
+  region: 'UK'
+
 #- platform: google_travel_time
 #  name: Time to TickX
 #  api_key: !secret google_maps_api_key

@@ -7,7 +7,7 @@
     entity_id: binary_sensor.wireless_sensor
     to: 'on'
     for:
-      seconds: 5
+      seconds: 2
   action:
   - service: mqtt.publish
     data:
@@ -23,69 +23,69 @@
     entity_id: binary_sensor.porch_door
     to: 'on'
     for:
-      seconds: 3
+      seconds: 1
   action:
   - service: mqtt.publish
     data:
       topic: tele/sonoffb/RESULT
       payload: "key4_off"
 
-# Lockdown Resets
-- alias: turn off partial lockdown if full lockdown is set
+- alias: switch 1 reset
   initial_state: 'on'
   hide_entity: true
   trigger:
-    - platform: state
-      entity_id: input_boolean.lockdown_full
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: input_boolean.lockdown_partial
-      state: 'on'
+  - platform: state
+    entity_id: binary_sensor.switch_1
+    to: 'on'
+    for:
+      seconds: 1
   action:
-  - service: input_boolean.turn_off
+  - service: mqtt.publish
     data:
-      entity_id: input_boolean.lockdown_partial
+      topic: tele/sonoffb/RESULT
+      payload: "key10_off"
 
-- alias: turn off full lockdown if partial lockdown is set
+- alias: switch 2 reset
   initial_state: 'on'
   hide_entity: true
   trigger:
-    - platform: state
-      entity_id: input_boolean.lockdown_partial
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: input_boolean.lockdown_full
-      state: 'on'
+  - platform: state
+    entity_id: binary_sensor.switch_2
+    to: 'on'
+    for:
+      seconds: 1
   action:
-  - service: input_boolean.turn_off
+  - service: mqtt.publish
     data:
-      entity_id: input_boolean.lockdown_full
+      topic: tele/sonoffb/RESULT
+      payload: "key11_off"
 
-- alias: turn off any lockdown if alarm is set
+- alias: switch 3 reset
   initial_state: 'on'
   hide_entity: true
   trigger:
-    - platform: state
-      entity_id: alarm_control_panel.home_alarm
-      to: 'armed_away'
-    - platform: state
-      entity_id: alarm_control_panel.home_alarm
-      to: 'armed_home'
-  condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: input_boolean.lockdown_full
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.lockdown_partial
-      state: 'on'
+  - platform: state
+    entity_id: binary_sensor.switch_3
+    to: 'on'
+    for:
+      seconds: 1
   action:
-  - service: input_boolean.turn_off
+  - service: mqtt.publish
     data:
-      entity_id: input_boolean.lockdown_full
-  - service: input_boolean.turn_off
+      topic: tele/sonoffb/RESULT
+      payload: "key12_off"
+
+- alias: switch 4 reset
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.switch_4
+    to: 'on'
+    for:
+      seconds: 1
+  action:
+  - service: mqtt.publish
     data:
-      entity_id: input_boolean.lockdown_partial
+      topic: tele/sonoffb/RESULT
+      payload: "key13_off"

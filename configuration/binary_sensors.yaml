@@ -62,3 +62,69 @@
     optimistic: false
     qos: 1
     retain: false
+
+  - platform: mqtt
+    alias: "Switch 1"
+    name: "Switch 1"
+    payload_on: "10"
+    payload_off: "key10_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    alias: "Switch 2"
+    name: "Switch 2"
+    payload_on: "11"
+    payload_off: "key11_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    alias: "Switch 3"
+    name: "Switch 3"
+    payload_on: "12"
+    payload_off: "key12_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    alias: "Switch 4"
+    name: "Switch 4"
+    payload_on: "13"
+    payload_off: "key13_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    alias: "Remote 1"
+    name: "Remote 1"
+    payload_on: "2"
+    payload_off: "key2_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false
+
+  - platform: mqtt
+    alias: "Remote 2"
+    name: "Remote 2"
+    payload_on: "3"
+    payload_off: "key3_off"
+    state_topic: "tele/sonoffb/RESULT"
+    value_template: '{{ value_json.RfReceived.RfKey }}'
+    optimistic: false
+    qos: 1
+    retain: false

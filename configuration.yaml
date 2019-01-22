@@ -129,8 +129,8 @@ alarm_control_panel:
   - platform: manual
     name: "Home Alarm"
     # code: !secret alarm_code
-    pending_time: 25
-    trigger_time: 25
+    pending_time: 15
+    trigger_time: 120
     disarm_after_trigger: false
 
 # Text to speech
