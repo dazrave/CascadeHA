@@ -43,11 +43,6 @@
   email:
     - !secret darren_email
 
-- platform: waze_travel_time
-  name: "Darren to destination"
-  origin: group.darren
-  destination: input_select.locations
-  region: 'UK'
 
 #- platform: google_travel_time
 #  name: Time to TickX
@@ -138,43 +133,3 @@
 #    - 0
 #    - 30
 
-- platform: template
-  sensors:
-    darren_rssi_bedroom:
-      value_template: '{{ states.device_tracker.darren_bt_bedroom.attributes.rssi }}'
-
-- platform: template
-  sensors:
-    darren_rssi_living_room:
-      value_template: '{{ states.device_tracker.darren_bt_living_room.attributes.rssi }}'
-
-- platform: template
-  sensors:
-    darren_rssi_office:
-      value_template: '{{ states.device_tracker.darren_bt_office.attributes.rssi }}'
-
-- platform: template
-  sensors:
-    darren_rssi_kitchen:
-      value_template: '{{ states.device_tracker.darren_bt_kitchen.attributes.rssi }}'
-
-#- platform: template
-#  sensors:
-#    darren_rssi_upstairs:
-#      value_template: '{{ states.device_tracker.darren_bt_bedroom.attributes.rssi + states.device_tracker.darren_bt_office.attributes.rssi }}'
-
-#- platform: template
-#  sensors:
-#    darren_rssi_downstairs:
-#      value_template: '{{ states.device_tracker.darren_bt_living_room.attributes.rssi + states.device_tracker.darren_bt_kitchen.attributes.rssi }}'
-
-#- platform: template
-#  sensors:
-#    darren_rssi_home:
-#      value_template: '{{ sensor.darren_rssi_downstairs + sensor.darren_rssi_upstairs }}'
-
-- platform: template
-  sensors:
-    darren_room_status:
-      value_template: '{{ states.input_select.darren_room_location.state }}'
-      friendly_name: 'Darren Room Location'
