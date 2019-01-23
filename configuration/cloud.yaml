@@ -4,8 +4,6 @@ google_actions:
       - light.kitchen_counter
       - light.garden_flood_light
       - light.living_room_lamp
-      - group.xmas_tree_lights
-      - group.all_xmas_lights
       - switch.general_1
       - switch.general_3
       - switch.general_4
@@ -33,29 +31,14 @@ google_actions:
        - Unit Lights
        - Counter
       room: kitchen
-    group.xmas_tree_lights:
-      name: Christmas Tree Lights
-      aliases:
-       - Christmas Tree
-       - Christmas Tree Lights
-       - Tree Lights
-      room: living room
-    group.all_xmas_lights:
-      name: Christmas
-      aliases:
-       - All Christmas lights
-       - Christmas lights
-       - Christmas
-       - Make it snow
-       - Happy Christmas
-       - Merry Christmas
-       - Festive Greetings
     switch.general_3:
-      name: Window Lights
+      name: Spare bedroom
       aliases:
-       - Window lights
-       - Bedroom christmas lights
-       - Bedroom lights
-       - lights
-      room: bedroom
+       - Back Room
+       - Spare Bedroom
+       - Spare room
+       - Back Bedroom
+       - Guest room
+       - Guest bedroom
+      room: spare bedroom
 

@@ -29,22 +29,3 @@
     name: Partial Lockdown
     initial: off
     icon: mdi:lock-outline
-
-  darren_office_presence:
-    name: Darren Office Presence
-    initial: false
-  darren_living_room_presence:
-    name: Darren Living Room Presence
-    initial: false
-  darren_bedroom_presence:
-    name: Darren Bedroom Presence
-    initial: false
-  darren_kitchen_presence:
-    name: Darren Bedroom Presence
-    initial: false
-  darren_downstairs_presence:
-    name: Darren Downstairs Presence
-    initial: false
-  darren_upstairs_presence:
-    name: Darren Upstairs Presence
-    initial: false
