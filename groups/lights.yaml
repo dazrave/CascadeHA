@@ -1,26 +1,26 @@
-kitchen_lights:
-  name: Kitchen Lights
-  icon: mdi:silverware-variant
-  view: no
-  entities:
-    - light.kitchen_counter
+#kitchen_lights:
+#  name: Kitchen Lights
+#  icon: mdi:silverware-variant
+#  view: no
+#  entities:
+#    - light.kitchen_counter
 #    - light.kitchen_main
 
-living_room_lights:
-  name: Living Room
-  icon: mdi:ceiling-light
-  view: no
-  entities:
-    - light.living_room_lamp
+#living_room_lights:
+#  name: Living Room
+#  icon: mdi:ceiling-light
+#  view: no
+#  entities:
+#    - light.living_room_lamp
 #    - light.living_room_main
 
-other_lights:
-  name: Other
-  icon: mdi:lightbulb-outline
-  view: no
-  entities:
-    - light.office_desk_led
-    - light.garden_flood_light
+#other_lights:
+#  name: Other
+#  icon: mdi:lightbulb-outline
+#  view: no
+#  entities:
+#    - light.office_desk_led
+#    - light.garden_flood_light
 #    - light.landing
 #    - light.garage
 #    - light.side_porch
@@ -36,25 +36,32 @@ other_lights:
 #    - light.garden_path
 #    - light.rear_flood
 
-xmas_tree_lights:
-  name: Xmas Tree Lights
-  icon: mdi:pine-tree
-  view: no
-  entities:
-    - switch.general_2
+#xmas_tree_lights:
+#  name: Xmas Tree Lights
+#  icon: mdi:pine-tree
+#  view: no
+#  entities:
+#    - switch.general_2
 
-all_xmas_lights:
-  name: All Xmas Lights
-  icon: mdi:gift
+#all_xmas_lights:
+#  name: All Xmas Lights
+#  icon: mdi:gift
+#  view: no
+#  entities:
+#    - group.xmas_tree_lights
+#    - switch.general_3
+#    - switch.general_4
+
+upstairs_lights:
+  name: Upstairs Lights
   view: no
   entities:
-    - group.xmas_tree_lights
-    - switch.general_3
-    - switch.general_4
+    - group.living_room_lights
+    - group.kitchen_lights
 
 downstairs_lights:
   name: Downstairs Lights
   view: no
   entities:
-    - group.living_room_lights
-    - group.kitchen_lights
+    - switch.general_3
+    - switch.general_4

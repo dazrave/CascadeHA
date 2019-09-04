@@ -115,18 +115,18 @@
 #    living_room_tv:
 #      value_template: "{% if is_state('device_tracker.living_room_tv', 'home') %}on{% else %}off{% endif %}"
 
-- platform: speedtest
-  minute: 30
+#- platform: speedtest
+#  minute: 30
   #hour:
   #  - 0
   #  - 6
   #  - 12
   #  - 18
   #server_id: 3448
-  monitored_conditions:
-    - ping
-    - upload
-    - download
+#  monitored_conditions:
+#    - ping
+#    - upload
+#    - download
 
 #- platform: fastdotcom
 #  minute:

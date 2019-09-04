@@ -30,6 +30,8 @@ frontend:
 # Enables configuration UI
 config:
 
+system_health:
+
 http:
   base_url: !secret base_url
   api_password: !secret api_password
@@ -70,31 +72,6 @@ media_player:
 
 # View all events in a logbook
 logbook:
-  exclude:
-    entities:
-      - group.internalpir
-      - group.groundfloorpir
-      - group.firstfloorpir
-      - group.externalpir
-      - group.reedswitches
-      - light.kitchen_led_left
-      - light.kitchen_led_right
-      - sensor.lastfm_dazrave
-      - sensor.steam_76561198131186539
-      - sensor.met_office_weather
-      - sensor.yr_symbol
-      - sensor.met_office_wind_direction
-      - sensor.met_office_wind_gust
-      - sensor.met_office_wind_speed
-      - sensor.met_office_visibility
-      - sensor.met_office_visibility_distance
-      - sensor.met_office_feels_like_temperature
-      - sensor.met_office_humidity
-      - binary_sensor.workday_sensor
-    domains:
-      - automation
-      - binary_sensor
-      - media_player
 
 # Enables a map showing the location of tracked devices
 map:
@@ -135,10 +112,50 @@ alarm_control_panel:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
+
+# Enables support for tracking state changes over time.
+recorder:
+  # Delete events and states older than 2 weeks
+  purge_keep_days: 14
+  exclude:
+    entities:
+      - group.internalpir
+      - group.groundfloorpir
+      - group.firstfloorpir
+      - group.externalpir
+      - group.reedswitches
+      - light.kitchen_led_left
+      - light.kitchen_led_right
+      - sensor.lastfm_dazrave
+      - sensor.steam_76561198131186539
+      - sensor.met_office_weather
+      - sensor.yr_symbol
+      - sensor.met_office_wind_direction
+      - sensor.met_office_wind_gust
+      - sensor.met_office_wind_speed
+      - sensor.met_office_visibility
+      - sensor.met_office_visibility_distance
+      - sensor.met_office_feels_like_temperature
+      - sensor.met_office_humidity
+      - sensor.met_office_uv
+      - binary_sensor.workday_sensor
+      - sensor.cascade_network_last_restart
+      - group.lockdown_full
+      - group.lockdown_partial
+      - device_tracker.darren
+      - camera.darren
+      - device_tracker.stephanie
+      - camera.stephanie
+    domains:
+      - automation
+      - binary_sensor
+      - media_player
+      - switch
 
 #bmw_connected_drive:
 #  name:

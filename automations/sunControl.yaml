@@ -1,23 +1,23 @@
 # Turn on before sunset
-- alias: Turn on before sunset
-  initial_state: 'on'
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: "-01:00:00"
-  action:
-    - service: light.turn_on
-      entity_id: light.living_room_lamp
-    - service: light.turn_on
-      entity_id: group.all_xmas_lights
+#- alias: Turn on before sunset
+#  initial_state: 'on'
+#  trigger:
+#    - platform: sun
+#      event: sunset
+#      offset: "-01:00:00"
+#  action:
+#    - service: light.turn_on
+#      entity_id: light.living_room_lamp
+#    - service: light.turn_on
+#      entity_id: group.all_xmas_lights
 
 # Turn off at sunrise
-- alias: Turn off at sunrise
-  initial_state: 'on'
-  trigger:
-    - platform: sun
-      event: sunrise
-      offset: "+01:00:00"
-  action:
-    - service: light.turn_off
-      entity_id: group.all_lights
+#- alias: Turn off at sunrise
+#  initial_state: 'on'
+#  trigger:
+#    - platform: sun
+#      event: sunrise
+#      offset: "+01:00:00"
+#  action:
+#    - service: light.turn_off
+#      entity_id: group.all_lights

@@ -1,7 +1,7 @@
   - platform: rpi_gpio
     ports:
       26: Living Room # PIR (26)
-      13: Back Room # PIR (13)
+      6: Back Room # PIR (6)
       19: Kitchen # PIR (19)
       18: Landing # PIR (18)
     bouncetime: 10
@@ -21,110 +21,115 @@
   #  state_topic: dummy/floorplan/sensor
   #  name: Floorplan
 
-  - platform: 'bayesian'
-    name: 'in_bed'
-    prior: 0.25
-    probability_threshold: 0.95
-    observations:
-      - entity_id: 'group.groundfloorpir'
-        prob_given_true: 0.4
-        prob_given_false: 0.2
-        platform: 'state'
-        to_state: 'off'
-      - entity_id: 'group.firstfloorpir'
-        prob_given_true: 0.5
-        prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'off'
-      - entity_id: 'sun.sun'
-        prob_given_true: 0.7
-        platform: 'state'
-        to_state: 'below_horizon'
+#  - platform: 'bayesian'
+#    name: 'in_bed'
+#    prior: 0.25
+#    probability_threshold: 0.95
+#    observations:
+#      - entity_id: 'group.groundfloorpir'
+#        prob_given_true: 0.4
+#        prob_given_false: 0.2
+#        platform: 'state'
+#        to_state: 'off'
+#      - entity_id: 'group.firstfloorpir'
+#        prob_given_true: 0.5
+#        prob_given_false: 0.4
+#        platform: 'state'
+#        to_state: 'off'
+#      - entity_id: 'sun.sun'
+#        prob_given_true: 0.7
+#        platform: 'state'
+#        to_state: 'below_horizon'
+
+#  - platform: mqtt
+#    name: "Wireless Sensor"
+#    payload_on: "1"
+#    payload_off: "key1_off"
+#    state_topic: "tele/sonoffb/RESULT"
+#    value_template: '{{ value_json.RfReceived.RfKey }}'
+#    qos: 1
+#
 
   - platform: mqtt
-    alias: "Wireless Sensor"
     name: "Wireless Sensor"
+    state_topic: "tele/sonoffb/RESULT"
     payload_on: "1"
     payload_off: "key1_off"
-    state_topic: "tele/sonoffb/RESULT"
+    payload_available: "online"
+    payload_not_available: "offline"
+    device_class: motion
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
-    qos: 1
-    retain: false
 
   - platform: mqtt
-    alias: "Porch Door"
     name: "Porch Door"
+    state_topic: "tele/sonoffb/RESULT"
     payload_on: "4"
     payload_off: "key4_off"
-    state_topic: "tele/sonoffb/RESULT"
+    payload_available: "online"
+    payload_not_available: "offline"
+    device_class: opening
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
-    qos: 1
-    retain: false
+
+
+#  - platform: mqtt
+#    name: "Porch Door"
+#    payload_on: "4"
+#    payload_off: "key4_off"
+#    state_topic: "tele/sonoffb/RESULT"
+#    value_template: '{{ value_json.RfReceived.RfKey }}'
+#    qos: 1
+#
 
   - platform: mqtt
-    alias: "Switch 1"
     name: "Switch 1"
     payload_on: "10"
     payload_off: "key10_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+
 
   - platform: mqtt
-    alias: "Switch 2"
     name: "Switch 2"
     payload_on: "11"
     payload_off: "key11_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+
 
   - platform: mqtt
-    alias: "Switch 3"
     name: "Switch 3"
     payload_on: "12"
     payload_off: "key12_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+
 
   - platform: mqtt
-    alias: "Switch 4"
     name: "Switch 4"
     payload_on: "13"
     payload_off: "key13_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+
 
   - platform: mqtt
-    alias: "Remote 1"
     name: "Remote 1"
     payload_on: "2"
     payload_off: "key2_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+
 
   - platform: mqtt
-    alias: "Remote 2"
     name: "Remote 2"
     payload_on: "3"
     payload_off: "key3_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+

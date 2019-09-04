@@ -7,7 +7,17 @@ google_actions:
       - switch.general_1
       - switch.general_3
       - switch.general_4
+      - group.downstairs_lights
+      - group.upstairs_lights
   entity_config:
+    group.downstairs_lights:
+      name: Downstairs
+      aliases:
+       - Downstairs Lights
+    group.upstairs_lights:
+      name: Upstairs
+      aliases:
+       - Upstairs Lights
     light.living_room_lamp:
       name: Lamp
       aliases:
@@ -41,4 +51,13 @@ google_actions:
        - Guest room
        - Guest bedroom
       room: spare bedroom
-
+    switch.general_2:
+      name: Office Speakers
+      aliases:
+       - Speakers
+      room: office
+    switch.general_4:
+      name: Office Lamp
+      aliases:
+       - Office Light
+      room: office
