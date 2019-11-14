@@ -14,11 +14,18 @@ homeassistant:
 #    url_path: floorplan
 #    config: !include floorplan.yaml
 
+#image_processing:
+# - platform: openalpr_cloud
+#   api_key: sk_13120f3b65a921c9ed2641bc
+#   region: eu
+#   source:
+#    - entity_id: camera.driveway
+
 panel_iframe:
   cctv:
     title: 'CCTV'
     icon: mdi:cctv
-    url: 'http://cascadehome.net:8181/login.htm'
+    url: 'http://cascadehome.net:8181/ui3.htm'
 
 # Show links to resources in log and frontend
 # introduction:
@@ -32,7 +39,7 @@ config:
 
 http:
   base_url: !secret base_url
-  api_password: !secret api_password
+#  api_password: !secret api_password
 
 api:
 
@@ -48,23 +55,6 @@ discovery:
 
 # Enables support for tracking state changes over time
 history:
-
-# Plex player
-#media_player:
-#  - platform: plex
-
-# Alerts
-alert:
-  garage_door:
-    name: Garage is open
-    done_message: Garage is closed
-    entity_id: sensor.garage_door
-    state: 'Open'
-    repeat: 30
-    can_acknowledge: True
-    skip_first: True
-    notifiers:
-      - slack
 
 # View all events in a logbook
 logbook:
@@ -114,10 +104,12 @@ alarm_control_panel:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
+
+system_health:
 
 #bmw_connected_drive:
 #  name:
@@ -135,6 +127,7 @@ zone: !include zones.yaml
 cloud: !include configuration/cloud.yaml
 sensor: !include configuration/sensors.yaml
 input_boolean: !include configuration/input_boolean.yaml
+input_select: !include configuration/input_select.yaml
 binary_sensor: !include configuration/binary_sensors.yaml
 light: !include configuration/lights.yaml
 camera: !include configuration/cameras.yaml

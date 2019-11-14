@@ -42,9 +42,9 @@
       friendly_name: Inside Humidity
 
 # custom
-    binary_sensor.floorplan:
-      custom_ui_state_card: state-card-floorplan
-      config: !include floorplan.yaml
+#    binary_sensor.floorplan:
+#      custom_ui_state_card: state-card-floorplan
+#      config: !include floorplan.yaml
 
     device_tracker.living_room_tv:
       device_class: power

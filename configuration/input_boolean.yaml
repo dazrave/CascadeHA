@@ -10,6 +10,16 @@
     icon: mdi:account-plus
     # device_class: presence
 
+  holiday_mode:
+    name: Holiday
+    initial: off
+    icon: mdi:weather-sunny
+
+  sleep_mode:
+    name: Sleep
+    initial: off
+    icon: mdi:sleep
+
   garage_door:
     name: Garage Door
     initial: off
@@ -19,3 +29,7 @@
     name: Home Alarm
     initial: off
     icon: mdi:alarm
+
+  away_mode:
+    name: Away Mode
+    initial: off

@@ -12,53 +12,36 @@
     ports:
       5: Garage Open # Reed switch
       20: Garage Closed # Reed switch
+    bouncetime: 10
     pull_mode: "UP"
+    invert_logic: false
 
   - platform: workday
     country: UK
 
-  #- platform: mqtt
-  #  state_topic: dummy/floorplan/sensor
-  #  name: Floorplan
-
-  - platform: 'bayesian'
-    name: 'in_bed'
-    prior: 0.25
-    probability_threshold: 0.95
-    observations:
-      - entity_id: 'group.groundfloorpir'
-        prob_given_true: 0.4
-        prob_given_false: 0.2
-        platform: 'state'
-        to_state: 'off'
-      - entity_id: 'group.firstfloorpir'
-        prob_given_true: 0.5
-        prob_given_false: 0.4
-        platform: 'state'
-        to_state: 'off'
-      - entity_id: 'sun.sun'
-        prob_given_true: 0.7
-        platform: 'state'
-        to_state: 'below_horizon'
+  - platform: mqtt
+    name: "Porch Door"
+    state_topic: "tele/sonoffb/RESULT"
+    payload_on: "4"
+    payload_off: "key4_off"
+    payload_available: "online"
+    payload_not_available: "offline"
+    device_class: opening
+    value_template: '{{ value_json.RfReceived.RfKey }}'
 
   - platform: mqtt
-    alias: "Wireless Sensor"
     name: "Wireless Sensor"
     payload_on: "1"
     payload_off: "key1_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
 
   - platform: mqtt
-    alias: "Remote Button 3"
     name: "Remote Button 3"
     payload_on: "3"
     payload_off: "key3_off"
     state_topic: "tele/sonoffb/RESULT"
     value_template: '{{ value_json.RfReceived.RfKey }}'
-    optimistic: false
     qos: 1
-    retain: false
+

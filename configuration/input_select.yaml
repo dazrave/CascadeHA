@@ -1,0 +1,26 @@
+last_activity:
+    name: Last Activity
+    options:
+      - System Reset
+      - Landing Motion
+      - Kitchen Motion
+      - Living Room Motion
+      - Back Room Motion
+      - Garage Motion
+      - Back Door Opened
+      - Back Door Closed
+      - Kitchen Door Opened
+      - Kitchen Door Closed
+      - Porch Door Opened
+      - Garage Door Opened
+      - Garage Door Closed
+      - Doorbell
+      - Darren Arrived
+      - Darren Left
+      - Stephanie Arrived
+      - Stephanie Left
+      - Alarm Set
+      - Alarm Triggered
+      - Alarm Disarmed
+    initial: System Reset
+    icon: mdi:bell-ring
